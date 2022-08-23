@@ -12,7 +12,7 @@ import DynamicAdapt from './modules/dynamic-adapt';
 import PhoneMask from './modules/phone-mask/phone-mask';
 import ScrollTo from './modules/scrollToBlock';
 
-// заглушка для Интернет Эксплорера
+// заглушка для бразуера IE
 new Ie();
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -45,37 +45,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.initModule = initModule;
   window.Tabs = Tabs;
-
-  // new DynamicAdapt('max');
-  // new LazyLoad();
-  // new Popup();
-  // new Header();
-  // new Burger();
-  // new BackToTop();
-
-  // const tabs = document.querySelectorAll('.js-tabs');
-  // const mouseParallaxes = document.querySelectorAll('.mouse-parallax');
-  // const btnEffect = document.querySelectorAll('.btn-effect');
-  // const drops = document.querySelectorAll('.js-drop');
-  // const phoneMasks = document.querySelectorAll('.phone-mask');
-  // const links = document.querySelectorAll('._goto');
-
-  // tabs.forEach((el) => {
-  //   new Tabs(el);
-  // });
-  // mouseParallaxes.forEach((el) => {
-  //   new MouseParallax(el);
-  // });
-  // btnEffect.forEach((el) => {
-  //   new BtnEffect(el);
-  // });
-  // drops.forEach((el) => {
-  //   new Drop(el);
-  // });
-  // phoneMasks.forEach((el) => {
-  //   new PhoneMask(el);
-  // });
-  // links.forEach((el) => {
-  //   new ScrollTo(el);
-  // });
 });

@@ -24,8 +24,8 @@ class Ie {
   }
 
   init() {
-    if (this.check()) {
-      document.querySelector('html').classList.add(this.class);
+    if (!this.check()) {
+      document.querySelector('html').classList.remove(this.class);
     }
   }
 }
