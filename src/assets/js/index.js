@@ -1,44 +1,8 @@
-// import './modules/spollers';
-
-// import './modules/tooltips';
-
-// import './modules/form';
-
-// import './modules/select';
-
-// import './modules/calendar';
-
-// import './modules/zoom-image';
-
-// import './modules/popups';
-
-// import './modules/form-steps';
-
-// import './modules/calc-product';
-
-// import './modules/tooltips-mini';
-
-// import './modules/price-range';
-
-// import './modules/filter';
-
-// import './modules/compare-sticky';
-
-// import './modules/stock-steps';
-
-// import './modules/file-doc-uploader';
-
-// import './modules/file-image-uploader';
-
-// import './modules/phone-mask/phone-mask';
-
-// import './modules/cookie';
-
 import Burger from './modules/burger';
 import Header from './modules/header';
-// import Popup from './modules/gallery';
+import Popup from './modules/gallery';
 import BackToTop from './modules/backToTop';
-// import LazyLoad from './modules/lazyload';
+import LazyLoad from './modules/lazyload';
 import Tabs from './modules/tabs';
 import MouseParallax from './modules/mouse-parallax';
 import BtnEffect from './modules/btnEffect';
@@ -66,8 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // initModule(LazyLoad);
-  // initModule(Popup);
+  initModule(LazyLoad);
+  initModule(Popup);
   initModule(Header);
   initModule(Burger);
   initModule(BackToTop);

@@ -1,26 +1,25 @@
-// import { Fancybox } from '@fancyapps/ui';
+import { Fancybox } from '@fancyapps/ui';
 
-// class Popup {
-//   constructor() {
-//     this.Fancybox = Fancybox;
+class Popup {
+  constructor() {
+    this.Fancybox = Fancybox;
 
-//     this.init();
-//   }
+    this.init();
+  }
 
-//   init() {
-//     this.Fancybox.bind('[data-fancybox]', {
-//       mainClass: 'js-popup',
-//       Toolbar: false,
-//       click: false,
-//       closeButton: 'top',
-//       dragToClose: false,
-//       Image: {
-//         zoom: false,
-//         wheel: false,
-//         click: false,
-//       },
-//     });
-//   }
-// }
+  init() {
+    this.Fancybox.bind('[data-fancybox]', {
+      mainClass: 'js-popup',
+      Toolbar: false,
+      closeButton: 'top',
+      dragToClose: false,
+      Image: {
+        zoom: false,
+        wheel: false,
+        click: false,
+      },
+    });
+  }
+}
 
-// export default Popup;
+export default Popup;

@@ -1,15 +1,15 @@
-// import lazySizes from 'lazysizes';
+import lazySizes from 'lazysizes';
 
-// class LazyLoad {
-//   constructor() {
-//     this.lazySizes = lazySizes;
+class LazyLoad {
+  constructor() {
+    this.lazySizes = lazySizes;
 
-//     this.init();
-//   }
+    this.init();
+  }
 
-//   init() {
-//     this.lazySizes.cfg.lazyClass = 'lazyload';
-//   }
-// }
+  init() {
+    this.lazySizes.cfg.lazyClass = 'lazyload';
+  }
+}
 
-// export default LazyLoad;
+export default LazyLoad;
