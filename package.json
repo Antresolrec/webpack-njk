@@ -1,0 +1,59 @@
+{
+  "name": "layout-template",
+  "version": "1.0.0",
+  "description": "markup",
+  "main": "app.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack-dev-server",
+    "lint": "eslint --ext .js,.vue --fix --ignore-path .gitignore ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Antresolrec"
+  },
+  "author": "antresolrec",
+  "license": "ISC",
+  "browserslist": [
+    "last 2 versions",
+    "safari 8",
+    "ie 11"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "autoprefixer": "^9.7.4",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.0.6",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.5.3",
+    "eslint": "^7.17.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-webpack": "^0.13.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-vue": "^7.4.1",
+    "html-beautify-webpack-plugin": "^1.0.5",
+    "html-webpack-plugin": "^3.2.0",
+    "import-glob-loader": "^1.1.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.14.1",
+    "postcss-loader": "^3.0.0",
+    "prettier": "^2.2.1",
+    "sass-loader": "^8.0.2",
+    "shx": "^0.3.2",
+    "style-loader": "^1.2.1",
+    "webkit-line-clamp": "1.2.2",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.2",
+    "webpack-merge": "^4.2.2",
+    "core-js": "^3.6.5",
+    "dotenv-webpack": "^4.0.0",
+    "eslint-webpack-plugin": "^2.5.4",
+    "nunjucks": "^3.2.3",
+    "regenerator-runtime": "^0.13.7",
+    "simple-nunjucks-loader": "2.0.3"
+  }
+}

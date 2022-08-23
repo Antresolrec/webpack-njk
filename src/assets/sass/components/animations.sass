@@ -1,0 +1,76 @@
+.js-anim
+	transform: translate(0, 40px)
+	opacity: 0
+	transition: transform .8s, opacity .8s
+	@media (max-width: 479px)
+		transition: transform .5s, opacity .5s
+	&--opacity
+		transform: translate(0,0)
+	&--left
+		transform: translate(-40px, 0)
+	&--right
+		transform: translate(40px, 0)
+	&--top
+		transform: translate(0, -40px)
+	&--d-02
+		transition-delay: .2s
+	&--d-04
+		transition-delay: .4s
+	&._show
+		transform: translate(0, 0)
+		opacity: 1
+
+@keyframes shake
+	0%,
+	50%,
+	100%
+		transform: rotate(0deg)
+
+	10%,
+	30%
+		transform: rotate(-10deg)
+
+	20%,
+	40%
+		transform: rotate(10deg)
+
+@keyframes float
+	from
+		transform: translatey(0px)
+
+	to
+		transform: translatey(-5px)
+@keyframes btnShadow
+	from
+		box-shadow: .5rem .5rem 1rem #008294
+		transform: translateY(-.5rem)
+	to
+		box-shadow: 0 0 0 transparent
+		transform: translateY(0)
+.mouse-parallax
+	transition: transform .2s linear
+	@media (max-width: 1023px)
+		transform: translate(0,0) !important
+
+.fill-effect
+	position: relative
+	overflow: hidden
+	span,svg
+		position: relative
+		z-index: 2
+	i
+		position: absolute
+		display: block
+		width: 0
+		height: 0
+		border-radius: 50%
+		background-color: #fff
+		transform: translate(-50%,-50%)
+		z-index: 1
+		transition: width .7s, height .7s
+	@media (any-hover: hover)
+		&:hover
+			color: #000
+			i
+				width: 50rem
+				height: 50rem

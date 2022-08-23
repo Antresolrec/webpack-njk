@@ -1,0 +1,28 @@
+.bread-crumbs
+  display: flex
+  flex-wrap: wrap
+  margin-top: 2.2rem
+  align-items: center
+  font-size: 1.3rem
+  line-height: 2.2rem
+  letter-spacing: 0.5px
+  text-transform: uppercase
+  font-weight: normal
+  &__item
+    padding-right: 3rem
+    position: relative
+    color: #030235
+    a
+      color: #797979
+      font-size: 1.3rem
+      line-height: 2.2rem
+      @media (any-hover: hover)
+        &:hover
+          text-decoration-color: #797979 !important
+
+  &__seporator
+    top: 50%
+    left: 89%
+    transform: translate(-50%, -50%)
+    position: absolute
+    display: none
