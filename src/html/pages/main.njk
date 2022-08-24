@@ -10,76 +10,59 @@
 
 {% block content %}
 
-    {# <div class="page-section">
-        <div class="container">
-            <div class="test">
-                <video id="myVideo" width="320" height="176" controls>
-                    <source src="https://www.w3schools.com/tags/mov_bbb.mp4" type="video/mp4">
-                    <source src="mov_bbb.ogg" type="video/ogg"> Your browser does not support HTML5 video.
-                </video>
-                <!-- <p>
-                    <span id="demo"></span>
-                </p> -->
-            </div>
-            <div class="video-play">тест</div>
-            <div class="timecodes">
-                <p data-start="0" data-end="3">с 0 по 3</p>
-                <p data-start="4" data-end="6">с 4 по 6</p>
-                <p data-start="7" data-end="8">с 7 по 8</p>
-                <p data-start="9" data-end="10">с 9 по 10</p>
-            </div>
-        </div>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> #}
-
-
     <div class="container">
-        <section class="js-first-screen js-padding" style="height: 300px;">
+        <section class="js-first-screen js-padding">
+            Пример отступа от шапки
         </section>
-        <a href="content/test.jpg" data-fancybox="test">
-            <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="content/test.jpg" alt="">
-        </a>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam nesciunt at molestias atque, ipsa, perferendis omnis ab dolorum autem eius est dolores, sit veritatis error architecto quos!</p>
-        <!-- <section class="test">
-            <a href="#" data-fancybox="test">Lorem, ipsum.</a>
-            <div class="back-to-top"></div>
-        </section> -->
-        <div class="da" data-da=".footer,1440,0">lorem</div>
+        <section class="spollers js-spollers">
+            <div class="spollers__item">
+                <div class="spollers__trigger js-spoller">Спойлер простой скрытый</div>
+                <div style="display: none;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, voluptatem.</div>
+            </div>
+            <div class="spollers__item">
+                <div class="spollers__trigger js-spoller">Спойлер простой открытый</div>
+                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, voluptatem.</div>
+            </div>
+            <div class="spollers__item">
+                <div class="spollers__trigger js-spoller" data-max="1024">Спойлер простой инитится на 1024пх</div>
+                <div style="display: none;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, voluptatem.</div>
+            </div>
+        </section>
+        <section class="spollers js-spollers _one">
+            <div class="spollers__item">
+                <div class="spollers__trigger js-spoller">Спойлер простой скрытый только один для показа</div>
+                <div style="display: none;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, voluptatem.</div>
+            </div>
+            <div class="spollers__item">
+                <div class="spollers__trigger js-spoller">Спойлер простой скрытый только один для показа</div>
+                <div style="display: none;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, voluptatem.</div>
+            </div>
+        </section>
         <section class="js-tabs">
-            <div class="js-tabs__trigger">1</div>
-            <div class="js-tabs__trigger _open">2</div>
-            <div class="js-tabs__trigger">3</div>
+            <div class="js-tabs__trigger">tab-1</div>
+            <div class="js-tabs__trigger _open">tab-2</div>
+            <div class="js-tabs__trigger">tab-3</div>
             <div class="js-tabs__block">1-block</div>
             <div class="js-tabs__block">2-block</div>
             <div class="js-tabs__block">3-block</div>
         </section>
-        <input type="text" class="phone-mask" placeholder="+7 (___) ___-__-__" name="" id="">
-    
-        <section class="js-tabs">
-            <div class="js-tabs__trigger">1</div>
-            <div class="js-tabs__trigger">2</div>
-            <div class="js-tabs__trigger">3</div>
-            <div class="js-tabs__block">1-block</div>
-            <div class="js-tabs__block">2-block</div>
-            <div class="js-tabs__block">3-block</div>
-        </section>
-    
-        <section class="spollers _spollers">
-            <div class="spoller _spoller">Spoller</div>
-            <div class="sp-test">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem cum impedit maiores quo ullam reiciendis officiis sint deserunt aliquam sit!</div>
-        </section>
-    
-        <div class="mouse-parallax" data-speed="50"></div>
-    
-        <div class="btn-effect">
+        <input type="text" class="phone-mask" placeholder="+7 (___) ___-__-__">
+        <div class="js-mouse-parallax" data-speed="50">Параллакс</div>
+        <div class="js-btn-effect">
             <span>btn</span>
             <i></i>
         </div>
-    
-        <div>
+        <div class="test-drop">
             <div class="js-drop">drop</div>
+            <div class="test-drop__text">
+                Дроп пахает
+            </div>
         </div>
-        <div data-href="btn-effect" class="_goto" style="margin-top: 100vh; display: inline-block;">goto</div>
+        <a href="content/test.jpg" data-fancybox="test" class="test-fancy">
+            <img src="content/test.jpg" alt="">
+        </a>
+        <div class="js-back-to-top"></div>
     </div>
+    <div class="big-text js-anim">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi illo omnis dolorum dolores ipsa excepturi, neque reiciendis natus hic atque.</div>
 
 {% endblock %}

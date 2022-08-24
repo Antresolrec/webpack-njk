@@ -51,30 +51,7 @@
 	to
 		box-shadow: 0 0 0 transparent
 		transform: translateY(0)
-.mouse-parallax
+.js-mouse-parallax
 	transition: transform .2s linear
 	@media (max-width: 1023px)
 		transform: translate(0,0) !important
-
-.fill-effect
-	position: relative
-	overflow: hidden
-	span,svg
-		position: relative
-		z-index: 2
-	i
-		position: absolute
-		display: block
-		width: 0
-		height: 0
-		border-radius: 50%
-		background-color: #fff
-		transform: translate(-50%,-50%)
-		z-index: 1
-		transition: width .7s, height .7s
-	@media (any-hover: hover)
-		&:hover
-			color: #000
-			i
-				width: 50rem
-				height: 50rem
