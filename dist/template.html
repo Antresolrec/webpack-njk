@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru" class="internet-explorer">
+<html lang="ru">
 
     <head>
         <meta charset="UTF-8">
@@ -32,10 +32,13 @@
                             <nav class="menu">
                                 <ul class="menu__list">
                                     <li class="menu__link">
-                                        <button data-href="js-drop" class="js-to-block">Как арендовать самокат</button>
+                                        <a href="#anchor-test" class="js-to-block">Как арендовать самокат</a>
                                     </li>
                                     <li class="menu__link">
-                                        <a href="#">Катайтесь с Плюсом</a>
+                                        <a href="#form" class="js-to-block">Как арендовать самокат</a>
+                                    </li>
+                                    <li class="menu__link">
+                                        <a href="/template.html#anchor-test" target="_blank">Катайтесь с Плюсом</a>
                                     </li>
                                     <li class="menu__link">
                                         <a href="#">Катайтесь аккуратно</a>
@@ -63,10 +66,51 @@
                     <section class="js-first-screen js-padding">
                         Пример отступа от шапки
                     </section>
+                    <div class="round-log"></div>
+                    <div class="line-drawing-demo">
+                        <svg width="444" height="583" viewBox="0 0 444 583" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M92.9046 519.928C77.2584 511.891 68.6463 495.638 66.4152 482.061C66.4065 482.008 66.4023 481.958 66.4023 481.905C66.4023 451.104 66.4023 372.301 66.4023 302.823C66.4023 233.286 115.875 185.156 140.612 169.783C185.962 144.359 293.272 84.6398 359.707 49.1627C378.089 39.3466 392.566 35.551 403.879 35.7468C433.455 36.2586 441.41 64.0479 440.984 82.8659C440.984 108.882 440.984 179.718 440.984 254.93C440.984 330.141 391.511 376.143 366.774 389.743L299.848 425.106C299.706 425.181 299.657 425.185 299.566 425.316C296.629 429.546 197.923 571.71 195.663 574.952C193.369 578.243 190.172 580.823 187.752 579.544M92.9046 519.928C110.381 528.905 146.925 524.188 183.165 497.385C183.83 496.894 184.784 497.373 184.784 498.199C184.784 540.939 184.784 565.49 184.784 574.222C185.038 576.258 185.924 578.579 187.752 579.544M92.9046 519.928C78.1805 513.192 44.845 497.947 29.2964 490.852C13.853 483.805 6.42837 470.341 4.59763 464.365C4.57215 464.282 4.5598 464.205 4.55722 464.118C3.37954 424.424 1.7369 327.939 4.56095 258.478C7.38798 188.943 50.5002 149.09 71.7029 139.628C125.299 109.473 242.032 43.4861 280.197 20.7797C318.361 -1.92678 345.225 1.85809 352.881 6.58882L416.89 38.0942M187.752 579.544C187.752 579.544 96.4384 529.876 92.9046 526.329C91.5972 525.016 91.2572 520.774 91.3477 519.761" stroke="#343779" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M318.069 330.286C299.881 361.789 276.009 385.893 252.233 399.453C228.397 413.049 205.13 415.826 187.623 405.719C170.117 395.611 160.889 374.073 160.744 346.632C160.6 319.262 169.539 286.536 187.727 255.033C205.916 223.53 229.788 199.426 253.563 185.865C277.399 172.27 300.666 169.493 318.173 179.6C335.68 189.708 344.908 211.246 345.052 238.686C345.196 266.057 336.258 298.783 318.069 330.286Z" stroke="#343779" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M213.098 279.972L250.679 334.521C251.603 335.863 253.658 335.596 254.208 334.063L327.049 131.195" stroke="#343779" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <form action="#" method="POST" class="form js-form">
+                        <div class="form__item">
+                            <label class="input-form">
+                                <input type="text" autocomplete="off" data-required="text" placeholder="Имя">
+                                <span class="input-form__message input-form__message--error">Необходимое поле для заполнения</span>
+                                <span class="input-form__message input-form__message--correct">Успех</span>
+                            </label>
+                        </div>
+                        <div class="form__item">
+                            <label class="input-form">
+                                <input type="tel" autocomplete="off" data-required="tel" class="phone-mask" placeholder="+7 (___) ___-__-__">
+                                <span class="input-form__message input-form__message--error">Необходимое поле для заполнения</span>
+                                <span class="input-form__message input-form__message--correct">Успех</span>
+                            </label>
+                        </div>
+                        <div class="form__item">
+                            <label class="input-form">
+                                <input type="email" autocomplete="off" data-required="email" placeholder="емейл">
+                                <span class="input-form__message input-form__message--error">Необходимое поле для заполнения</span>
+                                <span class="input-form__message input-form__message--correct">Успех</span>
+                            </label>
+                        </div>
+                        <div class="form__item">
+                            <button class="form__btn js-form__submit" type="submit">
+                                Submit
+                            </button>
+                        </div>
+                    </form>
                     <section class="spollers js-spollers">
                         <div class="spollers__item">
                             <div class="spollers__trigger js-spoller">Спойлер простой скрытый</div>
-                            <div style="display: none;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, voluptatem.</div>
+                            <div style="display: none;">
+                                <div class="test-sp">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, voluptatem.</p>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, voluptatem.</p>
+                                </div>
+                            </div>
                         </div>
                         <div class="spollers__item">
                             <div class="spollers__trigger js-spoller">Спойлер простой открытый</div>
@@ -96,13 +140,23 @@
                         <div class="js-tabs__block">3-block</div>
                     </section>
                     <input type="text" class="phone-mask" placeholder="+7 (___) ___-__-__">
-                    <div class="js-mouse-parallax" data-speed="50">Параллакс</div>
+                    <div class="test-parallax">
+                        <div class="js-mouse-parallax" data-speed="50">
+                            <img src="content/leaf.png" alt="">
+                        </div>
+                        <div class="js-mouse-parallax" data-speed="50" data-reverse>
+                            <img src="content/leaf.png" alt="" style="transform: rotate(180deg);">
+                        </div>
+                        <div class="js-mouse-parallax" data-speed="50">
+                            <img src="content/leaf.png" alt="" style="transform: rotate(-25deg);">
+                        </div>
+                    </div>
                     <div class="js-btn-effect">
                         <span>btn</span>
                         <i></i>
                     </div>
                     <div class="test-drop">
-                        <div class="js-drop">drop</div>
+                        <div class="js-drop anchor-test">drop</div>
                         <div class="test-drop__text">
                             Дроп пахает
                         </div>
@@ -110,7 +164,7 @@
                     <a href="content/test.jpg" data-fancybox="test" class="test-fancy">
                         <img src="content/test.jpg" alt="">
                     </a>
-                    <div class="js-back-to-top"></div>
+                    <a href="#wrapper" class="js-to-block js-back-to-top"></a>
                 </div>
                 <div class="big-text js-anim">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi illo omnis dolorum dolores ipsa excepturi, neque reiciendis natus hic atque.</div>
 
@@ -143,6 +197,19 @@
                 </div>
             </div>
         </div>
+        <script>
+            let ua = window.navigator.userAgent;
+
+            function isIE() {
+                ua = navigator.userAgent;
+                const isIe = ua.indexOf('MSIE ') > -1 || ua.indexOf('Trident/') > -1;
+                return isIe;
+            }
+            if (isIE()) {
+                document.documentElement.classList.add('internet-explorer');
+            }
+
+        </script>
         <script src="js/vendors.min.js"></script>
         <script src="js/main.min.js"></script>
     </body>

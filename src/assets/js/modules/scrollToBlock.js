@@ -2,49 +2,75 @@ import * as SmoothScroll from './smoothScroll/smoothScroll';
 import Burger from './burger';
 
 class ScrollTo extends Burger {
-  constructor(el) {
-    super(el);
-    this.el = el;
-    this.scr = null;
+  constructor(burger) {
+    super(burger);
+    this.selectors = document.querySelectorAll('.js-to-block');
+    this.outer = document.querySelector('.js-fixed');
+    this.speed = 300;
+    this.isLocation = window.location.hash;
+    this.options = {};
+    this.library = null;
     this.class = null;
     this.block = null;
-    this.options = {};
+    this.curBlock = null;
 
-    if (this.el) {
-      this.init();
+    if (this.selectors) {
+      this.set();
+    }
+
+    if (this.isLocation.match('#anchor-')) {
+      this.onLoad();
+    }
+
+    if (this.burger) {
+      super.init();
     }
   }
 
-  closeMenu() {
-    super.close(500);
-  }
-
-  goTo(block, speed, offset = 80) {
+  goTo(block, speed, offset) {
     this.options = {
       speedAsDuration: true,
       speed,
       offset,
       easing: 'easeOutQuad',
     };
-    this.scr = new SmoothScroll();
-    this.scr.animateScroll(block, '', this.options);
+
+    if (this.library) {
+      this.library.destroy();
+      this.library = null;
+    }
+
+    this.library = new SmoothScroll();
+    this.library.animateScroll(block, '', this.options);
   }
 
-  listener() {
-    const THIS = this;
-    THIS.el.addEventListener('click', (e) => {
-      if (document.querySelector('.menu._open')) {
-        THIS.closeMenu();
-      }
-      this.class = this.el.getAttribute('data-href');
-      this.block = document.querySelector(`.${this.class}`);
-      THIS.goTo(this.block, 300);
-      e.preventDefault();
+  set() {
+    this.selectors.forEach((el) => {
+      this.listener(el);
     });
   }
 
-  init() {
-    this.listener();
+  onLoad() {
+    this.curBlock = this.isLocation.replace('#', '');
+    this.block = document.querySelector(`.${this.curBlock}`);
+
+    setTimeout(() => {
+      this.goTo(this.block, this.speed, this.outer.clientHeight);
+    }, 1);
+  }
+
+  listener(el) {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      if (this.unlock) {
+        super.close(this.delay);
+      }
+
+      this.class = el.getAttribute('href').replace('#', '');
+      this.block = document.querySelector(`.${this.class}`);
+      this.goTo(this.block, this.speed, this.outer.clientHeight);
+    });
   }
 }
 

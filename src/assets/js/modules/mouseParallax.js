@@ -24,11 +24,11 @@ class MouseParallax {
     if (state) {
       this.el.style.transform = `translate3d(${this.x * this.speed}px, ${
         this.y * this.speed
-      }px, 0)`;
+      }px, ${this.x * 30}px)`;
     } else {
       this.el.style.transform = `translate3d(-${this.x * this.speed}px, -${
         this.y * this.speed
-      }px, 0)`;
+      }px, ${this.x * 30}px)`;
     }
   }
 

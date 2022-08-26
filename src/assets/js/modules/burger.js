@@ -1,5 +1,5 @@
 class Burger {
-  constructor(el) {
+  constructor() {
     this.burger = document.querySelector('.burger');
     this.body = document.querySelector('body');
     this.lp = document.querySelectorAll('.js-lp');
@@ -8,12 +8,7 @@ class Burger {
     this.lockClass = '_lock';
     this.delay = 500;
     this.unlock = true;
-    this.el = el;
     this.width = null;
-
-    if (this.burger) {
-      this.init();
-    }
   }
 
   bodyLockRemove(delay) {

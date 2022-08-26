@@ -25,19 +25,19 @@ class Spoller {
     this.target = target;
     target.style.overflow = 'hidden';
     target.style.height = 0;
-    target.style.paddingTop = 0;
-    target.style.paddingBottom = 0;
-    target.style.marginTop = 0;
-    target.style.marginBottom = 0;
+    // target.style.paddingTop = 0;
+    // target.style.paddingBottom = 0;
+    // target.style.marginTop = 0;
+    // target.style.marginBottom = 0;
   }
 
-  rmStyleFirst(target) {
-    this.target = target;
-    target.style.removeProperty('padding-top');
-    target.style.removeProperty('padding-bottom');
-    target.style.removeProperty('margin-top');
-    target.style.removeProperty('margin-bottom');
-  }
+  // rmStyleFirst(target) {
+  //   this.target = target;
+  //   target.style.removeProperty('padding-top');
+  //   target.style.removeProperty('padding-bottom');
+  //   target.style.removeProperty('margin-top');
+  //   target.style.removeProperty('margin-bottom');
+  // }
 
   rmStyleSecond(target) {
     this.target = target;
@@ -56,7 +56,7 @@ class Spoller {
     this.addStyleSecond(target);
     window.setTimeout(() => {
       target.style.display = 'none';
-      this.rmStyleFirst(target);
+      // this.rmStyleFirst(target);
       this.rmStyleSecond(target);
     }, this.duration);
   }
@@ -74,7 +74,7 @@ class Spoller {
     window.setTimeout(() => {
       target.style.height = `${this.height}px`;
     }, 1);
-    this.rmStyleFirst(target);
+    // this.rmStyleFirst(target);
     window.setTimeout(() => {
       this.rmStyleSecond(target);
     }, this.duration);

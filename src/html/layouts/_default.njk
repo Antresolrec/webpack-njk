@@ -1,6 +1,6 @@
 {% from 'mixins/bread-crumbs.njk' import breadCrumbsMixin with context %}
 <!doctype html>
-<html lang="ru" class="internet-explorer">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -26,5 +26,16 @@
 
         {% include 'blocks/popups/popup_template.njk' %}
     </div>
+    <script>
+        let ua = window.navigator.userAgent;
+        function isIE() {
+            ua = navigator.userAgent;
+            const isIe = ua.indexOf('MSIE ') > -1 || ua.indexOf('Trident/') > -1;
+            return isIe;
+        }
+        if (isIE()) {
+            document.documentElement.classList.add('internet-explorer');
+        }
+    </script>
 </body>
 </html>

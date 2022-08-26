@@ -1,21 +1,24 @@
-import Ie from './modules/fix-ie';
+// import Ie from './modules/fixIe';
 import LazyLoad from './modules/lazyload';
 import Burger from './modules/burger';
 import Header from './modules/header';
 import BackToTop from './modules/backToTop';
 import Tabs from './modules/tabs';
-import MouseParallax from './modules/mouse-parallax';
+import MouseParallax from './modules/mouseParallax';
 import BtnEffect from './modules/btnEffect';
-import Drop from './modules/custom-drop-menu';
-import PhoneMask from './modules/phone-mask/phone-mask';
+import Drop from './modules/dropMenu';
+import PhoneMask from './modules/phone-mask/phoneMask';
 import ScrollTo from './modules/scrollToBlock';
 import Spoller from './modules/spollers';
 import Popup from './modules/gallery';
-import DynamicAdapt from './modules/dynamic-adapt';
+import DynamicAdapt from './modules/dynamicAdapt';
 import ShowBlock from './modules/showBlock';
+import Form from './modules/form-validator/form';
+// import './modules/anime';
+import './modules/learning';
 
 // заглушка для бразуера IE
-new Ie();
+// new Ie();
 
 document.addEventListener('DOMContentLoaded', () => {
   document.body.classList.add('_loaded');
@@ -38,16 +41,19 @@ document.addEventListener('DOMContentLoaded', () => {
   initModule(Burger);
   initModule(BackToTop);
   initModule(DynamicAdapt);
+  initModule(ScrollTo);
+  initModule(Form, '.js-form');
   initModule(ShowBlock, '.js-anim');
   initModule(Spoller, '.js-spoller');
   initModule(Tabs, '.js-tabs');
   initModule(Drop, '.js-drop');
   initModule(MouseParallax, '.js-mouse-parallax');
   initModule(BtnEffect, '.js-btn-effect');
-  initModule(ScrollTo, '.js-to-block');
+  // initModule(ScrollTo, '.js-to-block');
   initModule(PhoneMask, '.phone-mask');
 
   window.initModule = initModule;
   window.Tabs = Tabs;
   window.Spoller = Spoller;
+  window.Form = Form;
 });

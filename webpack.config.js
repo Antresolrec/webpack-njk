@@ -8,7 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlBeautifyPlugin = require('html-beautify-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
+// const Dotenv = require('dotenv-webpack');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 const PATHS = {
@@ -113,7 +113,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new Dotenv(),
+    // new Dotenv(),
     new ESLintPlugin({
       extensions: ['js'],
     }),
@@ -123,7 +123,7 @@ module.exports = {
           template: `${pagesDir}/${page}`,
           filename: `./${page.replace(/\.njk/, '.html')}`,
           minify: false,
-          env: process.env,
+          // env: process.env,
         })
     ),
     new HtmlBeautifyPlugin({
@@ -147,13 +147,14 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       { from: 'src/assets/font', to: 'font' },
-      { from: 'src/assets/img/main', to: 'img' },
+      // { from: 'src/assets/img/main', to: 'img' },
       { from: 'src/assets/documents', to: 'content/documents' },
       { from: 'src/assets/img/content', to: 'content' },
-      { from: 'src/assets/json', to: 'json' },
+      // { from: 'src/assets/json', to: 'json' },
       { from: 'src/assets/css', to: 'css' },
     ]),
   ],
+  devtool: false,
   devServer: {
     // contentBase: 'src',
     port: 3000,
