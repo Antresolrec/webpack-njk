@@ -1,4 +1,4 @@
-import * as SmoothScroll from './smoothScroll/smoothScroll';
+import SmoothScroll from 'smooth-scroll/dist/smooth-scroll.min.js';
 import Burger from './burger';
 
 class ScrollTo extends Burger {
