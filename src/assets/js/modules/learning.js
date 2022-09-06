@@ -79,3 +79,15 @@ async function fetchUsers(url) {
 
 const URL = 'https://jsonplaceholder.typicode.com/users';
 fetchUsers(URL);
+
+const testTimeout = document.querySelector('.test-timeout');
+const time = testTimeout.hasAttribute('data-time')
+  ? testTimeout.getAttribute('data-time')
+  : 3000;
+
+function tick() {
+  testTimeout.style.transitionDuration = `${time / 1000}s`;
+  testTimeout.classList.toggle('_active');
+  setTimeout(tick, time);
+}
+tick();
