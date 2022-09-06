@@ -4,10 +4,10 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <meta name="description" content="">
         <meta name="keywords" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta property="og:title" content="" />
         <meta property="og:description" content="" />
         <meta property="og:image" content="" />
@@ -19,12 +19,12 @@
 
     <body>
         <div class="wrapper">
-            <header class="header">
+            <header class="header js-header">
                 <div class="header__wrapper js-fixed compensate-for-scrollbar">
                     <div class="container container--big">
                         <div class="header__row">
                             <a href="#" class="header__logo">
-
+                                Logo
                             </a>
                             <button type="button" class="burger" data-init="1023">
 
@@ -32,19 +32,16 @@
                             <nav class="menu">
                                 <ul class="menu__list">
                                     <li class="menu__link">
-                                        <a href="#anchor-test" class="js-to-block">Как арендовать самокат</a>
+                                        <a href="#anchor-tabs" class="js-to-block">Табы</a>
                                     </li>
                                     <li class="menu__link">
-                                        <a href="#form" class="js-to-block">Как арендовать самокат</a>
+                                        <a href="#anchor-form" class="js-to-block">Форма</a>
                                     </li>
                                     <li class="menu__link">
-                                        <a href="template.html#anchor-test" target="_blank">Катайтесь с Плюсом</a>
+                                        <a href="#anchor-footer" class="js-to-block">Футер</a>
                                     </li>
                                     <li class="menu__link">
-                                        <a href="#">Катайтесь аккуратно</a>
-                                    </li>
-                                    <li class="menu__link">
-                                        <a href="#">Где самокаты?</a>
+                                        <a href="template.html#anchor-tabs" target="_blank">Триггер на новую страницу до блока табов</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -61,11 +58,34 @@
 
             <main class="page">
 
-
                 <div class="container">
-                    <section class="js-first-screen js-padding">
-                        Пример отступа от шапки
+                    <section class="js-first-screen">
+                        <div class="title-page">Отступ от шапки</div>
                     </section>
+                    <div class="title-page">Попапы</div>
+                    <div>
+                        <button type="button" data-popup data-src="#popup-1" data-fancybox="popupOne">
+                            Open popup 1
+                        </button>
+                        <button type="button" data-popup data-src="#popup-2" data-fancybox="popupTwo">
+                            Open popup 2
+                        </button>
+                    </div>
+                    <div class="title-page">Галерея</div>
+                    <div class="test-gallery">
+                        <a href="content/test.jpg" data-gallery data-fancybox="test-gallery">
+                            <img src="content/test.jpg" alt="">
+                        </a>
+                        <a href="content/leaf.png" data-gallery data-fancybox="test-gallery">
+                            <img src="content/leaf.png" alt="">
+                        </a>
+                    </div>
+                    <div class="title-page">Ассинхронный фетч запрос</div>
+                    <div class="test-fetch">
+                        <div class="test-fetch__row">
+                        </div>
+                    </div>
+                    <div class="title-page">Анимация отрисовки на жс</div>
                     <div class="round-log"></div>
                     <div class="line-drawing-demo">
                         <svg width="444" height="583" viewBox="0 0 444 583" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -74,6 +94,7 @@
                             <path d="M213.098 279.972L250.679 334.521C251.603 335.863 253.658 335.596 254.208 334.063L327.049 131.195" stroke="#343779" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </div>
+                    <div class="title-page anchor-form">Форма</div>
                     <form action="#" method="POST" class="form js-form">
                         <div class="form__item">
                             <label class="input-form">
@@ -102,6 +123,7 @@
                             </button>
                         </div>
                     </form>
+                    <div class="title-page">Спойлеры</div>
                     <section class="spollers js-spollers">
                         <div class="spollers__item">
                             <div class="spollers__trigger js-spoller">Спойлер простой скрытый</div>
@@ -121,6 +143,7 @@
                             <div style="display: none;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, voluptatem.</div>
                         </div>
                     </section>
+                    <div class="title-page">Спойлеры - один для показа</div>
                     <section class="spollers js-spollers _one">
                         <div class="spollers__item">
                             <div class="spollers__trigger js-spoller">Спойлер простой скрытый только один для показа</div>
@@ -131,6 +154,7 @@
                             <div style="display: none;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, voluptatem.</div>
                         </div>
                     </section>
+                    <div class="title-page anchor-tabs">Табы</div>
                     <section class="js-tabs">
                         <div class="js-tabs__trigger">tab-1</div>
                         <div class="js-tabs__trigger _open">tab-2</div>
@@ -139,7 +163,9 @@
                         <div class="js-tabs__block">2-block</div>
                         <div class="js-tabs__block">3-block</div>
                     </section>
+                    <div class="title-page">Инпут маск ( телефон )</div>
                     <input type="text" class="phone-mask" placeholder="+7 (___) ___-__-__">
+                    <div class="title-page">Параллакс по движению мыши</div>
                     <div class="test-parallax">
                         <div class="js-mouse-parallax" data-speed="50">
                             <img src="content/leaf.png" alt="">
@@ -151,29 +177,27 @@
                             <img src="content/leaf.png" alt="" style="transform: rotate(-25deg);">
                         </div>
                     </div>
+                    <div class="title-page">Эффект наведения на кнопку</div>
                     <div class="js-btn-effect">
                         <span>btn</span>
                         <i></i>
                     </div>
+                    <div class="title-page">Кастомное дроп меню</div>
                     <div class="test-drop">
-                        <div class="js-drop anchor-test">drop</div>
+                        <div class="js-drop">drop</div>
                         <div class="test-drop__text">
                             Дроп пахает
                         </div>
                     </div>
-                    <a href="content/test.jpg" data-fancybox="test" class="test-fancy">
-                        <img src="content/test.jpg" alt="">
-                    </a>
+                    <div class="title-page">Всплывающий блок по скроллу</div>
+                    <div class="big-text js-anim">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi illo omnis dolorum dolores ipsa excepturi, neque reiciendis natus hic atque.</div>
                     <a href="#wrapper" class="js-to-block js-back-to-top"></a>
                 </div>
-                <div class="big-text js-anim">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi illo omnis dolorum dolores ipsa excepturi, neque reiciendis natus hic atque.</div>
-
 
             </main>
-            <footer class="footer">
+            <footer class="footer anchor-footer">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque error obcaecati at dignissimos iusto natus aperiam. Optio cupiditate maiores fuga.
             </footer>
-
             <div class="popup popup_template">
                 <div class="popup__body">
                     <div class="popup__content">
@@ -194,6 +218,23 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div id="popup-1" class="popup-template">
+                <div class="popup-template__content">
+                    <h2>
+                        popup-1
+                    </h2>
+                    <button type="button" data-popup data-src="#popup-2" data-fancybox="popupThree" onclick="Fancybox.close()">
+                        Open popup 2
+                    </button>
+                </div>
+            </div>
+            <div id="popup-2" class="popup-template">
+                <div class="popup-template__content">
+                    <h2>
+                        popup-2
+                    </h2>
                 </div>
             </div>
         </div>

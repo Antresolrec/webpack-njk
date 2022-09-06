@@ -1,10 +1,11 @@
-@mixin font($font_name, $file_name, $weight, $style)
+@mixin font($font, $file, $weight)
   @font-face
-    font-family: $font_name
+    font-family: $font
     font-display: swap
-    src: url("../font/#{$file_name}.woff") format("woff"), url("../font/#{$file_name}.woff2") format("woff2"), url("../font/#{$file_name}.ttf") format("ttf")
+    src: url("../font/#{$file}.ttf") format("ttf"), url("../font/#{$file}.woff2") format("woff2"), url("../font/#{$file}.woff") format("woff")
     font-weight: #{$weight}
-    font-style: #{$style}
+    font-style: normal
+    // font-style: #{$style}
 
 @function rem($size)
   @return $size / $minimum-size * 1rem
