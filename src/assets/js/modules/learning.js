@@ -49,6 +49,10 @@ let result = arr.reduce((sum, current) => sum + current, 0);
 
 console.log(result);
 
+
+let name = "пупкин".replace("п", "д")
+console.log(name);
+
 /* eslint-enable */
 
 const blockFetch = document.querySelector('.test-fetch__row');

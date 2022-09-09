@@ -5,7 +5,7 @@ class Drop {
     this.initClass = '_init';
     this.triggers = document.querySelectorAll('.js-drop');
     this.target = null;
-    this.isCurOpen = null;
+    this.isOpen = null;
     this.initSize = null;
 
     if (trigger) {
@@ -15,11 +15,10 @@ class Drop {
 
   clickTrigger() {
     this.trigger.addEventListener('click', (e) => {
-      this.isCurOpen = e.currentTarget.parentNode.classList.contains(
-        this.class
-      );
+      e.preventDefault();
+      this.isOpen = e.currentTarget.parentNode.classList.contains(this.class);
       this.target = e.currentTarget;
-      if (this.isCurOpen) {
+      if (this.isOpen) {
         this.target.parentNode.classList.remove(this.class);
       } else {
         this.triggers.forEach((el) => {

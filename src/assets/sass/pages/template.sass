@@ -108,13 +108,40 @@
     background-color: red
 
 .test-drop
-    &._open
-        .test-drop__text
-            display: block
+    margin: 0 0 10rem 0
+    &__row
+        display: flex
+        margin: -2rem
+    &__item
+        position: relative
+        margin: 2rem
+        &._open
+            .test-drop__text
+                opacity: 1
+                transform: scaleY(1)
+
+    &__trigger
+        width: 15rem
+        height: 5rem
+        display: inline-flex
+        justify-content: center
+        align-items: center
+        border: solid .2rem $colorBlack
+        cursor: pointer
     &__text
-        display: none
-        padding: 3rem 0
+        padding: 3rem 1rem
+        text-align: center
         background-color: red
+        position: absolute
+        top: calc( 100% + 0.1rem )
+        left: 0
+        width: 100%
+        color: $colorWhite
+
+        opacity: 0
+        transform: scaleY(0)
+        transform-origin: center top
+        transition: all .3s
 
 .test-fancy
     img

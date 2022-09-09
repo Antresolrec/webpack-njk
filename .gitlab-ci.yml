@@ -1,0 +1,28 @@
+image: node:12.19.0
+
+stages:
+  - build
+  - deploy
+
+before_script:
+  - yarn
+
+build-min-code:
+  stage: build
+  script:
+    - yarn
+    - yarn build
+
+deploy-staging:
+  stage: deploy
+  script:
+    - npm run deploy-stage
+  only:
+    - develop
+
+deploy-production:
+  stage: deploy
+  script:
+    - npm run deploy-prod
+  only:
+    - master
