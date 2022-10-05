@@ -1,23 +1,25 @@
 .js-anim
-	transform: translate(0, 40px)
-	opacity: 0
+	$zero: 0
+	$value: 4rem
+	transform: translate($zero, $value)
+	opacity: $zero
 	transition: transform .8s, opacity .8s
 	@media (max-width: 479px)
 		transition: transform .5s, opacity .5s
 	&--opacity
-		transform: translate(0,0)
+		transform: translate($zero,$zero)
 	&--left
-		transform: translate(-40px, 0)
+		transform: translate(-$value, $zero)
 	&--right
-		transform: translate(40px, 0)
+		transform: translate($value, $zero)
 	&--top
-		transform: translate(0, -40px)
+		transform: translate(0, -$value)
 	&--d-02
 		transition-delay: .2s
 	&--d-04
 		transition-delay: .4s
 	&._show
-		transform: translate(0, 0)
+		transform: translate($zero, $zero)
 		opacity: 1
 
 @keyframes shake
@@ -39,13 +41,7 @@
 
 	to
 		transform: translatey(-5px)
-@keyframes btnShadow
-	from
-		box-shadow: .5rem .5rem 1rem #008294
-		transform: translateY(-.5rem)
-	to
-		box-shadow: 0 0 0 transparent
-		transform: translateY(0)
+
 .js-mouse-parallax
 	transition: transform .1s linear
 	@media (max-width: 1023px)

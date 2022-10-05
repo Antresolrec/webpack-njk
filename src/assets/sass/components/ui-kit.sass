@@ -1,13 +1,45 @@
-.fl-w
-    @include flex-wrap
-.fl-c
-    @include flex-center
-.ifl-c
-    @include inline-flex-center
-.ab-c
-    @include absolute-center
+.fl
+    display: flex
+.fl-inline
+    display: inline-flex
+.fl-wrap
+    flex-wrap: wrap
+.fl-column
+    flex-direction: column
+.fl-center
+    justify-content: center
+    align-items: center
+.fl-auto
+    flex: 1 1 auto
+.abs
+    $zero: 0
+    position: absolute
+    top: $zero
+    left: $zero
+.abs-center
+    $value: 50%
+    position: absolute
+    top: $value
+    left: $value
+    transform: translate(-$value,-$value)
 .wh
-    @include width-height
-.respond
+    $value: 100%
+    width: $value
+    height: $value
+.w-50
+    width: 50%
+.w-33
+    width: 33.333%
+.w-25
+    width: 25%
+.w-20
+    width: 20%
+.item-response
     img,svg
-        @include absolute
+        $zero: 0
+        $value: 100%
+        position: absolute
+        top: $zero
+        left: $zero
+        width: $value
+        height: $value

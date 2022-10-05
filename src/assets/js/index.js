@@ -16,6 +16,7 @@ import ShowBlock from './modules/showBlock';
 import Form from './modules/form-validator/form';
 // import './modules/anime';
 import './modules/learning';
+import './modules/browserUpdate';
 
 // заглушка для бразуера IE
 // new Ie();
