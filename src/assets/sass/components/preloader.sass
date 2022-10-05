@@ -1,0 +1,32 @@
+.preloader-page
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: #fff
+    z-index: 1
+    display: flex
+    justify-content: center
+    align-items: center
+    span
+        display: flex
+        justify-content: center
+        align-items: center
+        position: relative
+        width: 10rem
+        height: 10rem
+        &:before
+            content: ''
+            position: absolute
+            width: 100%
+            height: 100%
+            border-radius: 50%
+            border: dashed .2rem #000
+            animation: preloader 4s linear infinite
+
+@keyframes preloader
+    from
+        transform: rotate(0deg)
+    to
+        transform: rotate(360deg)

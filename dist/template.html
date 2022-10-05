@@ -18,10 +18,13 @@
     </head>
 
     <body>
+        <div class="preloader-page">
+            <span>Загрузка...</span>
+        </div>
         <div class="wrapper">
             <header class="header js-header">
                 <div class="header__wrapper js-fixed compensate-for-scrollbar">
-                    <div class="container container--big">
+                    <div class="container">
                         <div class="header__row">
                             <a href="#" class="header__logo">
                                 Logo
@@ -61,6 +64,9 @@
                 <div class="container">
                     <section class="js-first-screen">
                         <div class="title-page">Отступ от шапки</div>
+                        <div class="js-line-clamp" data-line="2">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi molestias blanditiis numquam dolores temporibus animi voluptatem, repudiandae illum sapiente ipsa aspernatur assumenda cupiditate dolore molestiae aliquid eum, illo rem doloribus deleniti aliquam ducimus saepe unde. Repellendus vitae quibusdam nesciunt, et sed rerum quos ad non aliquid. Deserunt voluptates adipisci odit assumenda cum illo sequi obcaecati officiis perferendis debitis eligendi, nam non voluptatibus est cupiditate facilis suscipit consequuntur rerum corporis quae, laborum vel laudantium atque ipsa. Numquam reprehenderit quidem consequatur! Temporibus, numquam. Voluptas, perspiciatis ipsam fugit nihil incidunt vitae, sit, iure eos laboriosam necessitatibus maxime ducimus vero vel cupiditate sequi velit.
+                        </div>
                     </section>
                     <div class="title-page">Таймаут js</div>
                     <div class="test-timeout" data-time="3000"></div>
@@ -86,6 +92,7 @@
                     <div class="test-fetch">
                         <div class="test-fetch__row">
                         </div>
+                        <button type="buttom" class="test-fetch__trigger">Запрос</button>
                     </div>
                     <div class="title-page">Анимация отрисовки на жс</div>
                     <div class="round-log"></div>
@@ -107,7 +114,7 @@
                         </div>
                         <div class="form__item">
                             <label class="input-form">
-                                <input type="tel" autocomplete="off" data-required="tel" class="phone-mask" placeholder="+7 (___) ___-__-__">
+                                <input type="tel" autocomplete="off" data-required="tel" class="js-phone-mask" placeholder="+7 (___) ___-__-__">
                                 <span class="input-form__message input-form__message--error">Необходимое поле для заполнения</span>
                                 <span class="input-form__message input-form__message--correct">Успех</span>
                             </label>
@@ -166,7 +173,7 @@
                         <div class="js-tabs__block">3-block</div>
                     </section>
                     <div class="title-page">Инпут маск ( телефон )</div>
-                    <input type="text" class="phone-mask" placeholder="+7 (___) ___-__-__">
+                    <input type="text" class="js-phone-mask" placeholder="+7 (___) ___-__-__">
                     <div class="title-page">Параллакс по движению мыши</div>
                     <div class="test-parallax">
                         <div class="js-mouse-parallax" data-speed="50">
@@ -186,14 +193,42 @@
                     </div>
                     <div class="title-page">Кастомное дроп меню</div>
                     <div class="test-drop">
-                        <div class="js-drop">drop</div>
-                        <div class="test-drop__text">
-                            Дроп пахает
+                        <div class="test-drop__row">
+                            <div class="test-drop__item">
+                                <a href="#" class="test-drop__trigger js-drop">
+                                    <span>drop</span>
+                                </a>
+                                <div class="test-drop__text">
+                                    Дроп пахает
+                                </div>
+                            </div>
+                            <div class="test-drop__item">
+                                <button type="button" class="test-drop__trigger js-drop">
+                                    <span>drop</span>
+                                </button>
+                                <div class="test-drop__text">
+                                    Дроп пахает
+                                </div>
+                            </div>
+                            <div class="test-drop__item">
+                                <div class="test-drop__trigger js-drop">
+                                    <span>drop</span>
+                                </div>
+                                <div class="test-drop__text">
+                                    Дроп пахает
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="title-page">Всплывающий блок по скроллу</div>
                     <div class="big-text js-anim">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi illo omnis dolorum dolores ipsa excepturi, neque reiciendis natus hic atque.</div>
+                    <div class="big-text js-anim">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi illo omnis dolorum dolores ipsa excepturi, neque reiciendis natus hic atque.</div>
+                    <div class="big-text js-anim">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi illo omnis dolorum dolores ipsa excepturi, neque reiciendis natus hic atque.</div>
+                    <div class="big-text js-anim">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi illo omnis dolorum dolores ipsa excepturi, neque reiciendis natus hic atque.</div>
+                    <div class="big-text js-anim">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi illo omnis dolorum dolores ipsa excepturi, neque reiciendis natus hic atque.</div>
                     <a href="#wrapper" class="js-to-block js-back-to-top"></a>
+                    <div class="preloader"></div>
+                    <div class="message">Ошибка запроса. повторите попытку позже</div>
                 </div>
 
             </main>

@@ -18,10 +18,9 @@ class BackToTop {
       : document.documentElement.clientHeight;
     if (this.offset > this.height) {
       this.btn.classList.add(this.class);
-      return true;
+    } else {
+      this.btn.classList.remove(this.class);
     }
-    this.btn.classList.remove(this.class);
-    return false;
   }
 
   listener() {

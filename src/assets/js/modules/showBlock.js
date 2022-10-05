@@ -14,7 +14,7 @@ class ShowBlock {
     }
   }
 
-  offset(el) {
+  getOffset(el) {
     this.rect = el.getBoundingClientRect();
     this.scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
     this.scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -24,9 +24,9 @@ class ShowBlock {
     };
   }
 
-  set() {
+  checkPosition() {
     this.value = window.scrollY;
-    this.elOffset = this.offset(this.el).top;
+    this.elOffset = this.getOffset(this.el).top;
     this.elHeight = this.el.offsetHeight;
     this.elPoint =
       window.innerHeight - (window.innerHeight - this.elHeight / 3);
@@ -41,16 +41,16 @@ class ShowBlock {
     }
   }
 
-  listeners() {
+  addListeners() {
     const THIS = this;
     ['scroll', 'resize'].forEach((evt) => {
-      window.addEventListener(evt, THIS.set.bind(THIS));
+      window.addEventListener(evt, THIS.checkPosition.bind(THIS));
     });
   }
 
   init() {
-    this.set();
-    this.listeners();
+    this.checkPosition();
+    this.addListeners();
   }
 }
 

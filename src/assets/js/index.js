@@ -20,40 +20,81 @@ import './modules/learning';
 // заглушка для бразуера IE
 // new Ie();
 
+const modules = [
+  { name: LazyLoad },
+  { name: Popup },
+  { name: Header },
+  { name: Burger },
+  { name: DynamicAdapt },
+  { name: BackToTop },
+  { name: ScrollTo },
+  { name: Form, selectors: '.js-form' },
+  { name: ShowBlock, selectors: '.js-anim' },
+  { name: Spoller, selectors: '.js-spoller' },
+  { name: Tabs, selectors: '.js-tabs' },
+  { name: Drop, selectors: '.js-drop' },
+  { name: MouseParallax, selectors: '.js-mouse-parallax' },
+  { name: BtnEffect, selectors: '.js-btn-effect' },
+  { name: PhoneMask, selectors: '.js-phone-mask' },
+];
+
+const initModule = (module) => {
+  const Module = module.name;
+  if (module.selectors) {
+    const selectors = document.querySelectorAll(module.selectors);
+    selectors.forEach((selector) => {
+      new Module(selector);
+    });
+  } else {
+    new Module();
+  }
+};
+
+window.initModule = initModule;
+window.Tabs = Tabs;
+window.Spoller = Spoller;
+window.Form = Form;
+
+// Expample for init global
+// initModule({name: Tabs, selectors: '.js-tabs'})
+
 document.addEventListener('DOMContentLoaded', () => {
   document.body.classList.add('_loaded');
 
-  const initModule = (item, selectors) => {
-    const Module = item;
-    if (selectors) {
-      const elements = document.querySelectorAll(selectors);
-      elements.forEach((el) => {
-        new Module(el);
-      });
-    } else {
-      new Module();
-    }
-  };
+  modules.forEach((module) => {
+    initModule(module);
+  });
 
-  initModule(LazyLoad);
-  initModule(Popup);
-  initModule(Header);
-  initModule(Burger);
-  initModule(BackToTop);
-  initModule(DynamicAdapt);
-  initModule(ScrollTo);
-  initModule(Form, '.js-form');
-  initModule(ShowBlock, '.js-anim');
-  initModule(Spoller, '.js-spoller');
-  initModule(Tabs, '.js-tabs');
-  initModule(Drop, '.js-drop');
-  initModule(MouseParallax, '.js-mouse-parallax');
-  initModule(BtnEffect, '.js-btn-effect');
-  // initModule(ScrollTo, '.js-to-block');
-  initModule(PhoneMask, '.phone-mask');
+  // const initModule = (item, selectors) => {
+  //   const Module = item;
+  //   if (selectors) {
+  //     const elements = document.querySelectorAll(selectors);
+  //     elements.forEach((el) => {
+  //       new Module(el);
+  //     });
+  //   } else {
+  //     new Module();
+  //   }
+  // };
 
-  window.initModule = initModule;
-  window.Tabs = Tabs;
-  window.Spoller = Spoller;
-  window.Form = Form;
+  // initModule(LazyLoad);
+  // initModule(Popup);
+  // initModule(Header);
+  // initModule(Burger);
+  // initModule(BackToTop);
+  // initModule(DynamicAdapt);
+  // initModule(ScrollTo);
+  // initModule(Form, '.js-form');
+  // initModule(ShowBlock, '.js-anim');
+  // initModule(Spoller, '.js-spoller');
+  // initModule(Tabs, '.js-tabs');
+  // initModule(Drop, '.js-drop');
+  // initModule(MouseParallax, '.js-mouse-parallax');
+  // initModule(BtnEffect, '.js-btn-effect');
+  // initModule(PhoneMask, '.phone-mask');
+
+  // window.initModule = initModule;
+  // window.Tabs = Tabs;
+  // window.Spoller = Spoller;
+  // window.Form = Form;
 });

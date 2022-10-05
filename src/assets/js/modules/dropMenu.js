@@ -8,7 +8,7 @@ class Drop {
     this.isOpen = null;
     this.initSize = null;
 
-    if (trigger) {
+    if (this.trigger) {
       this.init();
     }
   }

@@ -184,9 +184,75 @@
     &__email
         color: blue
 
+    &__trigger
+        display: block
+        margin: 2rem auto 0
+        height: 5rem
+        background-color: #000
+        text-align: center
+        width: 20rem
+        color: #fff
+        position: relative
+        z-index: 1
+        &._disabled
+            opacity: 0.5
+            pointer-events: none
+
 .test-timeout
     width: 5rem
     height: 5rem
     background-color: red
     &._active
         transform: translateX(200px)
+
+
+.preloader
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: rgba(0, 0, 0, .5)
+    z-index: 100
+    display: flex
+    justify-content: center
+    align-items: center
+    opacity: 0
+    pointer-events: none
+    transition: all .3s
+    &._show
+        opacity: 1
+        pointer-events: all
+    &:before
+        content: ''
+        display: block
+        width: 5rem
+        height: 5rem
+        border: .5rem dashed #fff
+        border-radius: 50%
+        animation: preloader 5s infinite linear
+
+.message
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: rgba(0, 0, 0, .5)
+    z-index: 100
+    display: flex
+    justify-content: center
+    align-items: center
+    color: #fff
+    opacity: 0
+    pointer-events: none
+    transition: all .3s
+    &._show
+        opacity: 1
+        pointer-events: all
+
+@keyframes preloader
+    from
+        transform: rotate(0deg)
+    to
+        transform: rotate(360deg)

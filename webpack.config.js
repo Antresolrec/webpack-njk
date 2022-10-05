@@ -1,14 +1,11 @@
 const path = require('path');
 const fs = require('fs');
 
-require('dotenv').config();
-
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlBeautifyPlugin = require('html-beautify-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-// const Dotenv = require('dotenv-webpack');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 const PATHS = {
@@ -21,6 +18,7 @@ const pagesDir = `${PATHS.src}/html/pages/`;
 const pages = fs
   .readdirSync(pagesDir)
   .filter((fileName) => fileName.endsWith('.njk'));
+
 module.exports = {
   stats: {
     children: false,
@@ -113,7 +111,6 @@ module.exports = {
     ],
   },
   plugins: [
-    // new Dotenv(),
     new ESLintPlugin({
       extensions: ['js'],
     }),
@@ -123,7 +120,6 @@ module.exports = {
           template: `${pagesDir}/${page}`,
           filename: `./${page.replace(/\.njk/, '.html')}`,
           minify: false,
-          // env: process.env,
         })
     ),
     new HtmlBeautifyPlugin({

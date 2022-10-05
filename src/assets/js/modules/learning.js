@@ -1,4 +1,14 @@
-// /* eslint-disable */
+/* eslint-disable */
+
+import webkitLineClamp from 'webkit-line-clamp';
+
+const lineClamps = document.querySelectorAll('.js-line-clamp');
+if (lineClamps) {
+  lineClamps.forEach((el) => {
+    webkitLineClamp(el, el.hasAttribute('data-line') ? el.getAttribute('data-line') : 3);
+  });
+}
+
 // const salaries = {
 //   John: 100,
 //   Ann: 160,
@@ -47,11 +57,12 @@ let arr = [1, 2, 3, 4, 5];
 
 let result = arr.reduce((sum, current) => sum + current, 0);
 
-console.log(result);
+// console.log(result);
 
 
 let name = "пупкин".replace("п", "д")
-console.log(name);
+// console.log(name);
+
 
 /* eslint-enable */
 
@@ -67,22 +78,37 @@ function createHtml(item) {
     </div> `;
 }
 
+const preloader = document.querySelector('.preloader');
+const fetchTrigger = document.querySelector('.test-fetch__trigger');
+const message = document.querySelector('.message');
+const URL = 'https://jsonplaceholder.typicode.com/users';
+
 async function fetchUsers(url) {
+  preloader.classList.add('_show');
+  fetchTrigger.classList.add('_disabled');
   await fetch(url)
     .then((response) => {
       if (response.ok) {
+        preloader.classList.remove('_show');
+        fetchTrigger.classList.remove('_disabled');
         return response.json();
       }
       return Promise.reject(response);
     })
     .then((responseJson) => responseJson.map((item) => createHtml(item)))
     .catch((response) => {
+      message.classList.add('_show');
+      setTimeout(() => {
+        message.classList.remove('_show');
+      }, 3000);
       console.log(response.status, response.statusText);
     });
 }
 
-const URL = 'https://jsonplaceholder.typicode.com/users';
-fetchUsers(URL);
+fetchTrigger.addEventListener('click', (e) => {
+  e.preventDefault();
+  fetchUsers(URL);
+});
 
 const testTimeout = document.querySelector('.test-timeout');
 const time = testTimeout.hasAttribute('data-time')
