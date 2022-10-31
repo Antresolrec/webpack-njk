@@ -26,9 +26,8 @@
             {% block content %}{% endblock %}
         </main>
         {% include 'includes/footer.njk' %}
-        {% include 'blocks/popups/popup_template.njk' %}
-        {% include 'blocks/popups/popup.njk' %}
     </div>
+    {% include 'includes/popups.njk' %}
     <script>
         let ua = window.navigator.userAgent;
         function isIE() {

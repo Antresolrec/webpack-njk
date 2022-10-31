@@ -9,6 +9,7 @@ class LazyLoad {
 
   init() {
     this.lazySizes.cfg.lazyClass = 'lazyload';
+    this.lazySizes.cfg.expand = 300;
   }
 }
 

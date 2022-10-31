@@ -16,6 +16,24 @@
         <div class="tester">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, optio!
         </div>
+        <select class="js-select">
+            <option data-placeholder="true">Плейсходер</option>
+            <option value="1">Москва</option>
+            <option value="2">Санкт-Петербург</option>
+            <option value="3">ОченьДлинноеНазваниеГорода</option>
+        </select>
+        <div class="js-slider">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        slide1
+                    </div>
+                    <div class="swiper-slide">
+                        slide2
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="intro">
             <div class="intro__row fl fl-wrap fl-column fl-center">
                 <div class="intro__column w-25">
@@ -43,19 +61,15 @@
     <div class="test-timeout" data-time="3000"></div>
     <div class="title-page">Попапы</div>
     <div>
-        <button type="button" data-popup data-src="#popup-1" data-fancybox="popupOne">
-            Open popup 1
-        </button>
-        <button type="button" data-popup data-src="#popup-2" data-fancybox="popupTwo">
-            Open popup 2
-        </button>
+        <a href="#popup-1" class="btn js-popup-trigger" data-fancybox="popup-1">popup-1</a>
+        <a href="#popup-2" class="btn js-popup-trigger" data-fancybox="popup-2">popup-2</a>
     </div>
     <div class="title-page">Галерея</div>
     <div class="test-gallery">
-        <a href="content/test.jpg" data-gallery data-fancybox="test-gallery">
+        <a href="content/test.jpg" class="js-gallery-trigger" data-fancybox="product-gallery">
             <img src="content/test.jpg" alt="">
         </a>
-        <a href="content/leaf.png" data-gallery data-fancybox="test-gallery">
+        <a href="content/leaf.png" class="js-gallery-trigger" data-fancybox="product-gallery">
             <img src="content/leaf.png" alt="">
         </a>
     </div>
