@@ -10,12 +10,12 @@ import ScrollTo from './modules/scrollToBlock';
 import Popup from './modules/popup';
 import DynamicAdapt from './modules/dynamicAdapt';
 import Tabs from './modules/tabs';
-import MouseParallax from './modules/mouseParallax';
-import BtnEffect from './modules/btnEffect';
-import Drop from './modules/dropMenu';
-import Spoller from './modules/spollers';
-import ShowBlock from './modules/showBlock';
 import Slider from './modules/slider';
+import ShowBlock from './modules/showBlock';
+import initDrop from './modules/dropMenu';
+import initSpollers from './modules/spollers';
+import initMouseParallax from './modules/mouseParallax';
+import initBtnEffect from './modules/btnEffect';
 
 // import './modules/anime';
 import './modules/learning';
@@ -32,53 +32,18 @@ function initModules() {
   new DynamicAdapt();
   new ScrollTo();
   new Popup();
-  initForm();
-  initInputMask();
   new Select();
   new Slider();
+  new Tabs();
+  new ShowBlock();
+  initSpollers();
+  initDrop();
+  initForm();
+  initInputMask();
+  initMouseParallax();
+  initBtnEffect();
 
-  const tabs = document.querySelectorAll('.js-tabs');
-  if (tabs) {
-    tabs.forEach((el) => {
-      new Tabs(el);
-    });
-  }
-
-  const showBlocks = document.querySelectorAll('.js-anim');
-  if (showBlocks) {
-    showBlocks.forEach((el) => {
-      new ShowBlock(el);
-    });
-  }
-
-  const spollers = document.querySelectorAll('.js-spoller');
-  if (spollers) {
-    spollers.forEach((el) => {
-      new Spoller(el);
-    });
-  }
-
-  const btnEffect = document.querySelectorAll('.js-btn-effect');
-  if (btnEffect) {
-    btnEffect.forEach((el) => {
-      new BtnEffect(el);
-    });
-  }
-
-  const drops = document.querySelectorAll('.js-drop');
-  if (drops) {
-    drops.forEach((el) => {
-      new Drop(el);
-    });
-  }
-
-  const mouseParallax = document.querySelectorAll('.js-mouse-parallax');
-  if (mouseParallax) {
-    mouseParallax.forEach((el) => {
-      new MouseParallax(el);
-    });
-  }
-  document.body.classList.add('_loaded');
+  document.body.classList.add('_js-loaded');
 }
 
 document.addEventListener('DOMContentLoaded', initModules);

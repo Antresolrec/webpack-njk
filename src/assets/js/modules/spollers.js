@@ -152,4 +152,11 @@ class Spoller {
   }
 }
 
-export default Spoller;
+export default function initSpollers() {
+  const spollers = document.querySelectorAll('.js-spoller');
+  if (spollers) {
+    spollers.forEach((el) => {
+      new Spoller(el);
+    });
+  }
+}

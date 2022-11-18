@@ -19,49 +19,57 @@
 // });
 
 class Tabs {
-  constructor(el) {
-    this.triggers = el.querySelectorAll('.js-tabs__trigger');
-    this.blocks = el.querySelectorAll('.js-tabs__block');
+  constructor() {
+    this.tabs = document.querySelectorAll('.js-tabs:not(._inited)');
+    this.openClass = '_open';
+    this.initClass = '_inited';
     this.trigger = null;
     this.closedTrigger = null;
-    this.class = '_open';
 
-    if (el) {
+    if (this.tabs) {
       this.init();
     }
   }
 
   options() {
-    for (let index = 0; index < this.triggers.length; index++) {
-      this.trigger = this.triggers[index];
-      this.listener(this.trigger, index);
-      this.checkOpen(this.trigger, index);
-    }
+    this.tabs.forEach((tab) => {
+      tab.classList.add(this.initClass);
+      this.triggers = tab.querySelectorAll('.js-tabs__trigger');
+      this.blocks = tab.querySelectorAll('.js-tabs__block');
+
+      for (let index = 0; index < this.triggers.length; index++) {
+        this.trigger = this.triggers[index];
+        this.listener(this.trigger, this.blocks, index);
+        this.checkOpen(this.trigger, this.blocks, index);
+      }
+    });
   }
 
   toggleClass(el, state) {
-    el.classList.remove(this.class);
+    el.classList.remove(this.openClass);
     if (state) {
-      el.classList.add(this.class);
+      el.classList.add(this.openClass);
     }
   }
 
-  checkOpen(trigger, index) {
-    if (trigger.classList.contains(this.class)) {
-      this.toggleClass(this.blocks[index], true);
+  checkOpen(trigger, blocks, index) {
+    if (trigger.classList.contains(this.openClass)) {
+      this.toggleClass(blocks[index], true);
     }
   }
 
-  listener(trigger, index) {
+  listener(trigger, blocks, index) {
     trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+
       for (let i = 0; i < this.triggers.length; i++) {
         this.closedTrigger = this.triggers[i];
         this.toggleClass(this.closedTrigger);
-        this.toggleClass(this.blocks[i]);
+        this.toggleClass(blocks[i]);
       }
-      trigger.classList.add(this.class);
-      this.toggleClass(this.blocks[index], true);
-      e.preventDefault();
+
+      trigger.classList.add(this.openClass);
+      this.toggleClass(blocks[index], true);
     });
   }
 

@@ -2,12 +2,12 @@ import { Fancybox } from '@fancyapps/ui';
 
 class Popup {
   constructor() {
-    this.Fancybox = Fancybox;
+    this.fancybox = Fancybox;
     this.popupSelector = '.js-popup-trigger[data-fancybox]';
     this.gallerySelector = '.js-gallery-trigger[data-fancybox]';
     this.mobilePopup = document.querySelectorAll('.popup[data-mobile-close]');
 
-    if (this.Fancybox) {
+    if (this.fancybox) {
       this.init();
     }
 
@@ -17,7 +17,7 @@ class Popup {
   }
 
   initPopup() {
-    this.Fancybox.bind(this.popupSelector, {
+    this.fancybox.bind(this.popupSelector, {
       mainClass: 'js-popup',
       groupAttr: false,
       Toolbar: false,
@@ -28,7 +28,7 @@ class Popup {
   }
 
   initGallery() {
-    this.Fancybox.bind(this.gallerySelector, {
+    this.fancybox.bind(this.gallerySelector, {
       mainClass: 'js-gallery',
       Toolbar: false,
       closeButton: 'top',
@@ -42,10 +42,6 @@ class Popup {
     });
   }
 
-  show() {
-    this.Fancybox.show();
-  }
-
   checkRezise() {
     const THIS = this;
     window.addEventListener('resize', THIS.closeMobile.bind(this));
@@ -57,9 +53,28 @@ class Popup {
         window.innerWidth >= el.dataset.mobileClose &&
         el.closest('.js-popup')
       ) {
-        this.Fancybox.close();
+        this.fancybox.close();
       }
     });
+  }
+
+  static showPopup(selector) {
+    Fancybox.close();
+    Fancybox.show([
+      {
+        src: selector,
+        mainClass: 'js-popup',
+        groupAttr: false,
+        Toolbar: false,
+        closeButton: 'inside',
+        dragToClose: false,
+        autoFocus: false,
+      },
+    ]);
+  }
+
+  static hidePopup() {
+    Fancybox.close();
   }
 
   init() {
@@ -68,16 +83,10 @@ class Popup {
   }
 }
 
-window.Fancybox = Fancybox;
-
-// открыть попап глобально
-// Fancybox.show([
-//   {
-//     src: '#popup-feedback',
-//   },
-// ]);
-
-// закрыть попап глобально
-// Fancybox.close();
-
 export default Popup;
+
+// открыть попап глобально (передать айди попапа)
+// Popup.showPopup('#popup-feedback');
+
+// закрыть попап глобально. закроет любой открытый
+// Popup.hidePopup();

@@ -43,4 +43,11 @@ class MouseParallax {
   }
 }
 
-export default MouseParallax;
+export default function initMouseParallax() {
+  const mouseParallax = document.querySelectorAll('.js-mouse-parallax');
+  if (mouseParallax) {
+    mouseParallax.forEach((el) => {
+      new MouseParallax(el);
+    });
+  }
+}

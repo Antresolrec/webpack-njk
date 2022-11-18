@@ -32,4 +32,11 @@ class BtnEffect {
   }
 }
 
-export default BtnEffect;
+export default function initBtnEffect() {
+  const btnEffect = document.querySelectorAll('.js-btn-effect');
+  if (btnEffect) {
+    btnEffect.forEach((el) => {
+      new BtnEffect(el);
+    });
+  }
+}

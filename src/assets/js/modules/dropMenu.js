@@ -67,4 +67,11 @@ class Drop {
   }
 }
 
-export default Drop;
+export default function initDrop() {
+  const drops = document.querySelectorAll('.js-drop');
+  if (drops) {
+    drops.forEach((el) => {
+      new Drop(el);
+    });
+  }
+}
