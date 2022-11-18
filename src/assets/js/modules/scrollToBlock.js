@@ -1,30 +1,25 @@
 import SmoothScroll from 'smooth-scroll/dist/smooth-scroll.min.js';
 import Burger from './burger';
 
-class ScrollTo extends Burger {
-  constructor(burger) {
-    super(burger);
+class ScrollTo {
+  constructor() {
     this.selectors = document.querySelectorAll('.js-to-block');
     this.outer = document.querySelector('.js-fixed');
     this.speed = 300;
-    this.isLocation = window.location.hash;
+    // this.isLocation = window.location.hash;
     this.options = {};
     this.library = null;
-    this.class = null;
+    this.getId = null;
     this.block = null;
-    this.curBlock = null;
 
     if (this.selectors) {
       this.set();
+      this.burger = new Burger();
     }
 
-    if (this.isLocation.match('#anchor-')) {
-      this.onLoad();
-    }
-
-    if (this.burger) {
-      super.init();
-    }
+    // if (this.isLocation.match('#anchor-')) {
+    //   this.onLoad();
+    // }
   }
 
   goTo(block, speed, offset) {
@@ -33,6 +28,7 @@ class ScrollTo extends Burger {
       speed,
       offset,
       easing: 'easeOutQuad',
+      updateURL: true,
     };
 
     if (this.library) {
@@ -50,25 +46,25 @@ class ScrollTo extends Burger {
     });
   }
 
-  onLoad() {
-    this.curBlock = this.isLocation.replace('#', '');
-    this.block = document.querySelector(`.${this.curBlock}`);
+  // onLoad() {
+  //   this.getId = this.isLocation.replace('#', '');
+  //   this.block = document.querySelector(`#${this.getId}`);
 
-    setTimeout(() => {
-      this.goTo(this.block, this.speed, this.outer.clientHeight);
-    }, 1);
-  }
+  //   setTimeout(() => {
+  //     this.goTo(this.block, this.speed, this.outer.clientHeight);
+  //   }, 500);
+  // }
 
   listener(el) {
     el.addEventListener('click', (e) => {
       e.preventDefault();
 
-      if (this.unlock) {
-        super.close(this.delay);
+      if (this.burger.unlock) {
+        this.burger.close(this.burger.delay);
       }
 
-      this.class = el.getAttribute('href').replace('#', '');
-      this.block = document.querySelector(`.${this.class}`);
+      this.getId = el.getAttribute('href').replace('#', '');
+      this.block = document.querySelector(`#${this.getId}`);
       this.goTo(this.block, this.speed, this.outer.clientHeight);
     });
   }
