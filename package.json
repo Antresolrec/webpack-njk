@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack-dev-server",
-    "lint": "eslint --ext .js,.vue --fix --ignore-path .gitignore ."
+    "lint": "eslint --ext .js,.vue --fix --ignore-path .eslintignore ."
   },
   "repository": {
     "type": "git",
@@ -45,11 +45,9 @@
     "sass-loader": "^8.0.2",
     "simple-nunjucks-loader": "2.0.3",
     "style-loader": "^1.2.1",
-    "webkit-line-clamp": "1.2.2",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.2",
-    "webpack-merge": "^4.2.2"
+    "webpack-dev-server": "^3.10.2"
   },
   "dependencies": {
     "@fancyapps/ui": "^4.0.31",

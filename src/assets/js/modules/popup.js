@@ -43,8 +43,7 @@ class Popup {
   }
 
   checkRezise() {
-    const THIS = this;
-    window.addEventListener('resize', THIS.closeMobile.bind(this));
+    window.addEventListener('resize', this.closeMobile.bind(this));
   }
 
   closeMobile() {

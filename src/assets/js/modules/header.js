@@ -26,9 +26,8 @@ class Header {
     this.header.style.height = `${this.outer}px`;
   }
 
-  listener() {
-    const THIS = this;
-    window.addEventListener('scroll', THIS.check.bind(THIS));
+  addListeners() {
+    window.addEventListener('scroll', this.check);
     window.addEventListener('resize', () => {
       this.check();
       this.setHeight();
@@ -36,9 +35,10 @@ class Header {
   }
 
   init() {
+    this.check = this.check.bind(this);
     this.check();
     this.setHeight();
-    this.listener();
+    this.addListeners();
   }
 }
 

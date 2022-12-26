@@ -11,6 +11,7 @@ class Spoller {
     this.all = null;
 
     if (this.spoller) {
+      this.max = this.spoller.getAttribute('data-max');
       this.init();
     }
   }
@@ -25,19 +26,7 @@ class Spoller {
     this.target = target;
     target.style.overflow = 'hidden';
     target.style.height = 0;
-    // target.style.paddingTop = 0;
-    // target.style.paddingBottom = 0;
-    // target.style.marginTop = 0;
-    // target.style.marginBottom = 0;
   }
-
-  // rmStyleFirst(target) {
-  //   this.target = target;
-  //   target.style.removeProperty('padding-top');
-  //   target.style.removeProperty('padding-bottom');
-  //   target.style.removeProperty('margin-top');
-  //   target.style.removeProperty('margin-bottom');
-  // }
 
   rmStyleSecond(target) {
     this.target = target;
@@ -56,7 +45,6 @@ class Spoller {
     this.addStyleSecond(target);
     window.setTimeout(() => {
       target.style.display = 'none';
-      // this.rmStyleFirst(target);
       this.rmStyleSecond(target);
     }, this.duration);
   }
@@ -74,7 +62,6 @@ class Spoller {
     window.setTimeout(() => {
       target.style.height = `${this.height}px`;
     }, 1);
-    // this.rmStyleFirst(target);
     window.setTimeout(() => {
       this.rmStyleSecond(target);
     }, this.duration);
@@ -122,17 +109,17 @@ class Spoller {
   }
 
   set() {
-    const THIS = this;
     if (this.max && window.innerWidth > this.max) {
+      this.spoller.removeEventListener('click', this.click);
       if (this.spoller.classList.contains('_init')) {
         this.spoller.classList.remove('_active');
         this.spoller.classList.remove('_init');
         this.spoller.nextElementSibling.style.cssText = '';
-        this.spoller.removeEventListener('click', THIS.click.bind(THIS));
+        this.spoller.nextElementSibling.style.display = 'none';
       }
     } else if (!this.spoller.classList.contains('_init')) {
       this.spoller.classList.add('_init');
-      this.spoller.addEventListener('click', THIS.click.bind(THIS));
+      this.spoller.addEventListener('click', this.click);
     }
   }
 
@@ -142,13 +129,16 @@ class Spoller {
     }
   }
 
+  onResize() {
+    window.addEventListener('resize', this.set);
+  }
+
   init() {
-    this.max = this.spoller.getAttribute('data-max');
-    window.addEventListener('resize', () => {
-      this.set();
-    });
+    this.click = this.click.bind(this);
+    this.set = this.set.bind(this);
     this.set();
     this.show();
+    this.onResize();
   }
 }
 

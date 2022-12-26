@@ -23,14 +23,14 @@ class BackToTop {
     }
   }
 
-  listener() {
-    const THIS = this;
-    window.addEventListener('scroll', THIS.check.bind(THIS));
+  addListener() {
+    window.addEventListener('scroll', this.check);
   }
 
   init() {
+    this.check = this.check.bind(this);
     this.check();
-    this.listener();
+    this.addListener();
   }
 }
 

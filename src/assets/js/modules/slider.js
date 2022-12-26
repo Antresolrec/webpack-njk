@@ -3,6 +3,7 @@ import Swiper, { Navigation, Pagination, Autoplay, Thumbs } from 'swiper';
 class Slider {
   constructor() {
     this.sliders = document.querySelectorAll('.js-slider');
+    this.speed = 500;
     this.slider = null;
     this.prev = null;
     this.next = null;
@@ -10,15 +11,17 @@ class Slider {
     this.autoplay = null;
     this.loop = null;
     this.swiperSlider = null;
-    this.thumbs = null;
-    this.speed = 500;
+    this.plug = null;
+    this.wrapper = null;
+    this.plugSlide = null;
+    this.swiperThumbs = null;
 
     if (this.sliders) {
       this.init();
     }
   }
 
-  initSlider() {
+  initSlider(swiperThumbs) {
     this.swiperSlider = new Swiper(this.slider, {
       modules: [Navigation, Pagination, Autoplay, Thumbs],
       speed: this.speed,
@@ -38,29 +41,40 @@ class Slider {
         type: 'fraction',
       },
       thumbs: {
-        swiper: this.swiperThumbs,
+        swiper: swiperThumbs || null,
+      },
+      on: {
+        beforeInit: () => {
+          if (this.plug) {
+            this.plugSlide = document.createElement('div');
+            this.plugSlide.classList.add('swiper-slide', 'swiper-slide--plug');
+            this.wrapper.append(this.plugSlide);
+          }
+        },
       },
     });
   }
 
   createTemplate(container) {
-    this.thumbs = container.querySelector('.js-thumbs-slider');
+    const thumbs = container.querySelector('.js-thumbs-slider');
     this.slider = container.querySelector('.swiper');
+    this.wrapper = this.slider.querySelector('.swiper-wrapper');
     this.prev = container.querySelector('.button-slider--prev');
     this.next = container.querySelector('.button-slider--next');
     this.pagination = container.querySelector('.pagination-slider');
     this.autoplay = container.getAttribute('data-autoplay');
     this.loop = container.dataset.loop;
+    this.plug = container.dataset.plug;
 
-    if (this.thumbs) {
-      this.initThumbs();
+    if (thumbs) {
+      this.initSlider(this.initThumbs(thumbs));
+    } else {
+      this.initSlider();
     }
-
-    this.initSlider();
   }
 
-  initThumbs() {
-    this.swiperThumbs = new Swiper(this.thumbs, {
+  initThumbs(thumbs) {
+    this.swiperThumbs = new Swiper(thumbs, {
       direction: 'horizontal',
       slidesPerView: 'auto',
       speed: this.speed,
@@ -69,10 +83,6 @@ class Slider {
       observer: true,
       observeSlideChildren: true,
       slideToClickedSlide: true,
-      navigation: {
-        nextEl: this.next,
-        prevEl: this.prev,
-      },
       breakpoints: {
         320: {
           direction: 'horizontal',
@@ -84,6 +94,8 @@ class Slider {
         },
       },
     });
+
+    return this.swiperThumbs;
   }
 
   init() {

@@ -22,9 +22,7 @@ class BtnEffect {
   }
 
   listeners() {
-    ['mouseenter', 'mouseout'].forEach((evt) => {
-      this.options(evt);
-    });
+    ['mouseenter', 'mouseout'].forEach((evt) => this.options(evt));
   }
 
   init() {

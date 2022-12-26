@@ -1,26 +1,7 @@
 import browserUpdate from 'browser-update';
 
-browserUpdate({
-  required: {
-    e: 16,
-    f: 54,
-    o: 44,
-    o_a: 44,
-    s: 10,
-    c: 58,
-    y: 18.1,
-    v: '1.10',
-    uc: 11.5,
-    samsung: 7.0,
-  },
-  reminder: 0,
-  reminderClosed: 0,
-  nomessage: true,
-  onshow() {
-    window.location = '/badbrowser.html';
-    alert('Bad browser');
-  },
-});
+const docHtml = document.querySelector('html');
+const classIe = 'internet-explorer';
 
 function getBrowser() {
   const ua = navigator.userAgent;
@@ -39,12 +20,34 @@ function getBrowser() {
   };
 }
 
-const browser = getBrowser();
+if (!docHtml.classList.contains(classIe)) {
+  browserUpdate({
+    required: {
+      e: 16,
+      f: 54,
+      o: 44,
+      o_a: 44,
+      s: 10,
+      c: 58,
+      y: 18.1,
+      v: '1.10',
+      uc: 11.5,
+      samsung: 7.0,
+    },
+    reminder: 0,
+    reminderClosed: 0,
+    nomessage: true,
+    onshow() {
+      docHtml.classList.add(classIe);
+    },
+  });
 
-if (
-  (browser.name === 'safari' || browser.name === 'Safari') &&
-  browser.version < 10
-) {
-  window.location = '/badbrowser.html';
-  alert('Bad browser');
+  const browser = getBrowser();
+
+  if (
+    (browser.name === 'safari' || browser.name === 'Safari') &&
+    browser.version < 10
+  ) {
+    docHtml.classList.add(classIe);
+  }
 }

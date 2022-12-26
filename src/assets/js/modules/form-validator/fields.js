@@ -15,10 +15,9 @@ class Field {
 
   /** @private */
   addEventListeners() {
-    const THIS = this;
-    this.field.addEventListener('focus', THIS.removeError.bind(THIS));
-    this.field.addEventListener('change', THIS.removeError.bind(THIS));
-    this.field.addEventListener('blur', THIS.validation.bind(THIS));
+    this.field.addEventListener('focus', this.removeError.bind(this));
+    this.field.addEventListener('change', this.removeError.bind(this));
+    this.field.addEventListener('blur', this.validation.bind(this));
   }
 
   addError() {
