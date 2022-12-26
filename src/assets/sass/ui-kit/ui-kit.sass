@@ -1,85 +1,85 @@
 .btn
-    display: inline-flex
+  display: inline-flex
+  justify-content: center
+  align-items: center
+.fl
+  display: flex
+
+  &--auto
+    flex: 1 1 auto
+
+  &--wrap
+    flex-wrap: wrap
+
+  &--center
     justify-content: center
     align-items: center
-.fl
+
+  &--center-vert
+    align-items: center
+
+  &--center-hor
+    justify-content: center
+
+  &--end-vert
+    align-items: flex-end
+
+  &--start-vert
+    align-items: flex-start
+
+  &--between
+    justify-content: space-between
+
+  &--column
+    flex-direction: column
+
+  &--inline
+    display: inline-flex
+
+  &--not-mobile
+    display: block
+
+    @media (min-width: 768px)
+      display: flex
+
+  &--mobile
     display: flex
 
-    &--auto
-        flex: 1 1 auto
-
-    &--wrap
-        flex-wrap: wrap
-
-    &--center
-        justify-content: center
-        align-items: center
-
-    &--center-vert
-        align-items: center
-
-    &--center-hor
-        justify-content: center
-
-    &--end-vert
-        align-items: flex-end
-
-    &--start-vert
-        align-items: flex-start
-
-    &--between
-        justify-content: space-between
-
-    &--column
-        flex-direction: column
-
-    &--inline
-        display: inline-flex
-
-    &--not-mobile
-        display: block
-
-        @media (min-width: 768px)
-            display: flex
-
-    &--mobile
-        display: flex
-
-        @media (min-width: 768px)
-            display: block
+    @media (min-width: 768px)
+      display: block
 
 .abs
+  $zero: 0
+  position: absolute
+  top: $zero
+  left: $zero
+.abs-center
+  $value: 50%
+  position: absolute
+  top: $value
+  left: $value
+  transform: translate(-$value,-$value)
+.wh
+  $value: 100%
+  width: $value
+  height: $value
+.w-50
+  width: 50%
+.w-33
+  width: 33.333%
+.w-25
+  width: 25%
+.w-20
+  width: 20%
+.item-response
+  img,svg
     $zero: 0
+    $value: 100%
     position: absolute
     top: $zero
     left: $zero
-.abs-center
-    $value: 50%
-    position: absolute
-    top: $value
-    left: $value
-    transform: translate(-$value,-$value)
-.wh
-    $value: 100%
     width: $value
     height: $value
-.w-50
-    width: 50%
-.w-33
-    width: 33.333%
-.w-25
-    width: 25%
-.w-20
-    width: 20%
-.item-response
-    img,svg
-        $zero: 0
-        $value: 100%
-        position: absolute
-        top: $zero
-        left: $zero
-        width: $value
-        height: $value
 .js-to-block
-    &._active
-        color: red
+  &._active
+    color: red

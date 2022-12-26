@@ -7,251 +7,248 @@
 //     transition: opacity .7s
 
 .test
-    position: relative
-    width: 500px
-    height: 500px
-    video
-        position: absolute
-        top: 0
-        left: 0
-        width: 100%
-        height: 100%
-        z-index: 1
-    #demo
-        position: absolute
-        left: 0
-        bottom: 0
-        z-index: 2
-        height: 10px
-        background-color: #fff
-        color: #000
+  position: relative
+  width: 500px
+  height: 500px
+  video
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 1
+  #demo
+    position: absolute
+    left: 0
+    bottom: 0
+    z-index: 2
+    height: 10px
+    background-color: #fff
+    color: #000
 
 .timecodes
-    p
-        display: none
-        &._show
-            display: block
+  p
+    display: none
+    &._show
+      display: block
 
 .js-back-to-top
-    width: 50px
-    height: 50px
-    border-radius: 50%
-    background-color: green
-    position: fixed
-    bottom: 50px
-    right: 10px
-    z-index: 10
-    opacity: 0
-    &._show
-        opacity: 1
+  width: 50px
+  height: 50px
+  border-radius: 50%
+  background-color: green
+  position: fixed
+  bottom: 50px
+  right: 10px
+  z-index: 10
+  opacity: 0
+  &._show
+    opacity: 1
 
 .js-tabs
-    &__trigger
-        width: 100px
-        background-color: red
-        margin-right: 20px
-        display: inline-block
-        &._open
-            background-color: yellow
-    &__block
-        display: none
-        margin: 20px 0 0 0
-        &._open
-            display: block
+  &__trigger
+    width: 100px
+    background-color: red
+    margin-right: 20px
+    display: inline-block
+    &._open
+      background-color: yellow
+  &__block
+    display: none
+    margin: 20px 0 0 0
+    &._open
+      display: block
 
 .sp-test
-    // display: none
-    overflow: hidden
-    transition: all 1s
+  // display: none
+  overflow: hidden
+  transition: all 1s
 
 .js-btn-effect
-    width: 200px
-    height: 50px
-    background-color: red
+  width: 200px
+  height: 50px
+  background-color: red
+  position: relative
+  overflow: hidden
+  span,svg
     position: relative
-    overflow: hidden
-    span,svg
-        position: relative
-        z-index: 2
-    i
-        position: absolute
-        display: block
-        width: 0
-        height: 0
-        border-radius: 50%
-        background-color: black
-        transform: translate(-50%,-50%)
-        z-index: 1
-        transition: width .7s, height .7s
-    @media (any-hover: hover)
-        &:hover
-            color: #fff
-            i
-                width: 500px
-                height: 500px
+    z-index: 2
+  i
+    position: absolute
+    display: block
+    width: 0
+    height: 0
+    border-radius: 50%
+    background-color: black
+    transform: translate(-50%,-50%)
+    z-index: 1
+    transition: width .7s, height .7s
+  @media (any-hover: hover)
+    &:hover
+      color: #fff
+      i
+        width: 500px
+        height: 500px
 
 .spollers
-    margin: 0 0 3rem 0
-    &__item
-        margin: 0 0 2rem 0
-        &:last-child
-            margin: 0
-    &__trigger
-        background-color: red
-        cursor: pointer
-        padding: 1rem
-        display: inline-block
+  margin: 0 0 3rem 0
+  &__item
+    margin: 0 0 2rem 0
+    &:last-child
+      margin: 0
+  &__trigger
+    background-color: red
+    cursor: pointer
+    padding: 1rem
+    display: inline-block
 
 .big-text
-    font-size: 4rem
-    padding: 4rem
-    background-color: red
+  font-size: 4rem
+  padding: 4rem
+  background-color: red
 
 .test-drop
-    margin: 0 0 10rem 0
-    &__row
-        display: flex
-        margin: -2rem
-    &__item
-        position: relative
-        margin: 2rem
-        &._open
-            .test-drop__text
-                opacity: 1
-                transform: scaleY(1)
+  margin: 0 0 10rem 0
+  &__row
+    display: flex
+    margin: -2rem
+  &__item
+    position: relative
+    margin: 2rem
+    &._open
+      .test-drop__text
+        opacity: 1
+        transform: scaleY(1)
 
-    &__trigger
-        width: 15rem
-        height: 5rem
-        display: inline-flex
-        justify-content: center
-        align-items: center
-        border: solid .2rem $cBlack
-        cursor: pointer
-    &__text
-        padding: 3rem 1rem
-        text-align: center
-        background-color: red
-        position: absolute
-        top: calc( 100% + 0.1rem )
-        left: 0
-        width: 100%
-        color: $cWhite
-
-        opacity: 0
-        transform: scaleY(0)
-        transform-origin: center top
-        transition: all .3s
+  &__trigger
+    width: 15rem
+    height: 5rem
+    display: inline-flex
+    justify-content: center
+    align-items: center
+    border: solid .2rem $cBlack
+    cursor: pointer
+  &__text
+    padding: 3rem 1rem
+    text-align: center
+    background-color: red
+    position: absolute
+    top: calc( 100% + 0.1rem )
+    left: 0
+    width: 100%
+    color: $cWhite
+    opacity: 0
+    transform: scaleY(0)
+    transform-origin: center top
+    transition: all .3s
 
 .test-fancy
-    img
-        width: 100%
-        height: 100%
+  img
+    width: 100%
+    height: 100%
 
 .test-parallax
-    perspective: 400px
-    transform-style: preserve-3d
-    perspective-origin: 200% 200%
-    text-align: center
+  perspective: 400px
+  transform-style: preserve-3d
+  perspective-origin: 200% 200%
+  text-align: center
 .test-sp
-    padding: 2rem
-    p
-        margin: 0 0 2rem 0
+  padding: 2rem
+  p
+    margin: 0 0 2rem 0
 
 .popup-template
-    max-width: 50rem
-    width: 100%
-    display: none
+  max-width: 50rem
+  width: 100%
+  display: none
 .title-page
-    text-align: center
-    font-weight: 500
-    margin: 0 0 3rem 0
-    font-size: 2rem
-    @media (min-width: 768px)
-        font-size: 3rem
+  text-align: center
+  font-weight: 500
+  margin: 0 0 3rem 0
+  font-size: 2rem
+  @media (min-width: 768px)
+    font-size: 3rem
 .test-fetch
-
-    &__row
-        display: flex
-        flex-wrap: wrap
-        margin: -2rem
-    &__item
-        width: 20%
-        padding: 2rem
-        line-height: 1.5
-    &__name
-        font-size: 2rem
-    &__email
-        color: blue
-
-    &__trigger
-        display: block
-        margin: 2rem auto 0
-        height: 5rem
-        background-color: #000
-        text-align: center
-        width: 20rem
-        color: #fff
-        position: relative
-        z-index: 1
-        &._disabled
-            opacity: 0.5
-            pointer-events: none
+  &__row
+    display: flex
+    flex-wrap: wrap
+    margin: -2rem
+  &__item
+    width: 20%
+    padding: 2rem
+    line-height: 1.5
+  &__name
+    font-size: 2rem
+  &__email
+    color: blue
+  &__trigger
+    display: block
+    margin: 2rem auto 0
+    height: 5rem
+    background-color: #000
+    text-align: center
+    width: 20rem
+    color: #fff
+    position: relative
+    z-index: 1
+    &._disabled
+      opacity: 0.5
+      pointer-events: none
 
 .test-timeout
-    width: 5rem
-    height: 5rem
-    background-color: red
-    &._active
-        transform: translateX(200px)
+  width: 5rem
+  height: 5rem
+  background-color: red
+  &._active
+    transform: translateX(200px)
 
 .preloader
-    position: fixed
-    top: 0
-    left: 0
-    width: 100%
-    height: 100%
-    background-color: rgba(0, 0, 0, .5)
-    z-index: 100
-    display: flex
-    justify-content: center
-    align-items: center
-    opacity: 0
-    pointer-events: none
-    transition: all .3s
-    &._show
-        opacity: 1
-        pointer-events: all
-    &:before
-        content: ''
-        display: block
-        width: 5rem
-        height: 5rem
-        border: .5rem dashed #fff
-        border-radius: 50%
-        animation: preloader 5s infinite linear
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background-color: rgba(0, 0, 0, .5)
+  z-index: 100
+  display: flex
+  justify-content: center
+  align-items: center
+  opacity: 0
+  pointer-events: none
+  transition: all .3s
+  &._show
+    opacity: 1
+    pointer-events: all
+  &:before
+    content: ''
+    display: block
+    width: 5rem
+    height: 5rem
+    border: .5rem dashed #fff
+    border-radius: 50%
+    animation: preloader 5s infinite linear
 
 .message
-    position: fixed
-    top: 0
-    left: 0
-    width: 100%
-    height: 100%
-    background-color: rgba(0, 0, 0, .5)
-    z-index: 100
-    display: flex
-    justify-content: center
-    align-items: center
-    color: #fff
-    opacity: 0
-    pointer-events: none
-    transition: all .3s
-    &._show
-        opacity: 1
-        pointer-events: all
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background-color: rgba(0, 0, 0, .5)
+  z-index: 100
+  display: flex
+  justify-content: center
+  align-items: center
+  color: #fff
+  opacity: 0
+  pointer-events: none
+  transition: all .3s
+  &._show
+    opacity: 1
+    pointer-events: all
 
 @keyframes preloader
-    from
-        transform: rotate(0deg)
-    to
-        transform: rotate(360deg)
+  from
+    transform: rotate(0deg)
+  to
+    transform: rotate(360deg)
