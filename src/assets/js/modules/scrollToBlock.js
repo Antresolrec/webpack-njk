@@ -1,5 +1,5 @@
 import SmoothScroll from 'smooth-scroll/dist/smooth-scroll.min.js';
-import Burger from './burger';
+import myBurger from './burger';
 import getOffset from './getOffset';
 
 class ScrollTo {
@@ -17,7 +17,7 @@ class ScrollTo {
 
     if (this.selectors) {
       this.listenerClick();
-      this.burger = new Burger();
+      // this.burger = new Burger();
 
       this.pushBlocks();
 
@@ -62,8 +62,8 @@ class ScrollTo {
       el.addEventListener('click', (e) => {
         e.preventDefault();
 
-        if (this.burger.unlock) {
-          this.burger.close(this.burger.delay);
+        if (myBurger.unlock) {
+          myBurger.close();
         }
 
         this.onClick(el);

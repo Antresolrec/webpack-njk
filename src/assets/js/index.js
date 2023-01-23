@@ -3,7 +3,8 @@ import initForm from './modules/form-validator/index';
 import initInputMask from './modules/phone-mask/phoneMask';
 import Select from './modules/select';
 import LazyLoad from './modules/lazyload';
-import Burger from './modules/burger';
+// import Burger from './modules/burger';
+import './modules/burger';
 import Header from './modules/header';
 import BackToTop from './modules/backToTop';
 import ScrollTo from './modules/scrollToBlock';
@@ -26,7 +27,7 @@ import './modules/browserUpdate';
 
 function initModules() {
   new LazyLoad();
-  new Burger();
+  // new Burger();
   new Header();
   new BackToTop();
   new DynamicAdapt();

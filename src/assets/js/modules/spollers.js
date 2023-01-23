@@ -1,14 +1,34 @@
+function addStyleFirst(target, duration) {
+  target.style.transitionProperty = 'height, margin, padding';
+  target.style.transitionDuration = `${duration}ms`;
+}
+
+function addStyleSecond(target) {
+  target.style.overflow = 'hidden';
+  target.style.height = 0;
+}
+
+function rmStyleSecond(target) {
+  target.style.removeProperty(
+    'height',
+    'overflow',
+    'transition-duration',
+    'transition-property'
+  );
+  target.classList.remove('_slide');
+}
+
 class Spoller {
   constructor(el) {
     this.spoller = el;
-    this.duration = 500;
+    this.duration = 300;
     this.class = '.js-spollers';
     this.go = true;
-    this.max = null;
-    this.height = null;
-    this.target = null;
-    this.current = null;
-    this.all = null;
+    // this.max = null;
+    // this.height = null;
+    // this.target = null;
+    // this.current = null;
+    // this.all = null;
 
     if (this.spoller) {
       this.max = this.spoller.getAttribute('data-max');
@@ -16,36 +36,15 @@ class Spoller {
     }
   }
 
-  addStyleFirst(target) {
-    this.target = target;
-    target.style.transitionProperty = 'height, margin, padding';
-    target.style.transitionDuration = `${this.duration}ms`;
-  }
-
-  addStyleSecond(target) {
-    this.target = target;
-    target.style.overflow = 'hidden';
-    target.style.height = 0;
-  }
-
-  rmStyleSecond(target) {
-    this.target = target;
-    target.style.removeProperty('height');
-    target.style.removeProperty('overflow');
-    target.style.removeProperty('transition-duration');
-    target.style.removeProperty('transition-property');
-    target.classList.remove('_slide');
-  }
-
   up(target) {
-    this.addStyleFirst(target);
+    addStyleFirst(target, this.duration);
     this.height = target.offsetHeight;
     target.style.height = `${this.height}px`;
     this.height = target.offsetHeight;
-    this.addStyleSecond(target);
-    window.setTimeout(() => {
+    addStyleSecond(target);
+    setTimeout(() => {
       target.style.display = 'none';
-      this.rmStyleSecond(target);
+      rmStyleSecond(target);
     }, this.duration);
   }
 
@@ -57,13 +56,13 @@ class Spoller {
     }
     target.style.display = display;
     this.height = target.offsetHeight;
-    this.addStyleFirst(target);
-    this.addStyleSecond(target);
-    window.setTimeout(() => {
+    addStyleFirst(target, this.duration);
+    addStyleSecond(target);
+    setTimeout(() => {
       target.style.height = `${this.height}px`;
     }, 1);
-    window.setTimeout(() => {
-      this.rmStyleSecond(target);
+    setTimeout(() => {
+      rmStyleSecond(target);
     }, this.duration);
   }
 
@@ -112,8 +111,7 @@ class Spoller {
     if (this.max && window.innerWidth > this.max) {
       this.spoller.removeEventListener('click', this.click);
       if (this.spoller.classList.contains('_init')) {
-        this.spoller.classList.remove('_active');
-        this.spoller.classList.remove('_init');
+        this.spoller.classList.remove('_active', '_init');
         this.spoller.nextElementSibling.style.cssText = '';
         this.spoller.nextElementSibling.style.display = 'none';
       }
@@ -145,8 +143,6 @@ class Spoller {
 export default function initSpollers() {
   const spollers = document.querySelectorAll('.js-spoller');
   if (spollers) {
-    spollers.forEach((el) => {
-      new Spoller(el);
-    });
+    spollers.forEach((el) => new Spoller(el));
   }
 }

@@ -8,7 +8,7 @@ class Burger {
     this.openClass = '_open';
     this.lockClass = '_lock';
     this.initedClass = '_inited';
-    this.delay = 500;
+    this.delay = 300;
     this.unlock = true;
     this.width = null;
 
@@ -17,7 +17,7 @@ class Burger {
     }
   }
 
-  bodyLockRemove(delay) {
+  bodyLockRemove() {
     if (this.unlock) {
       setTimeout(() => {
         this.lp.forEach((el) => {
@@ -25,17 +25,17 @@ class Burger {
         });
         this.body.style.paddingRight = '0px';
         this.body.classList.remove(this.lockClass);
-      }, delay);
+      }, this.delay);
 
       this.unlock = false;
 
       setTimeout(() => {
         this.unlock = true;
-      }, delay);
+      }, this.delay);
     }
   }
 
-  bodyLockAdd(delay) {
+  bodyLockAdd() {
     if (this.unlock) {
       this.lp.forEach((el) => {
         el.style.paddingRight = `${
@@ -50,22 +50,22 @@ class Burger {
       this.unlock = false;
       setTimeout(() => {
         this.unlock = true;
-      }, delay);
+      }, this.delay);
     }
   }
 
-  bodyLock(delay) {
+  bodyLock() {
     if (this.body.classList.contains(this.lockClass)) {
-      this.bodyLockRemove(delay);
+      this.bodyLockRemove(this.delay);
     } else {
-      this.bodyLockAdd(delay);
+      this.bodyLockAdd(this.delay);
     }
   }
 
-  close(delay) {
+  close() {
     this.burger.classList.remove(this.openClass);
     this.menu.classList.remove(this.openClass);
-    this.bodyLockRemove(delay);
+    this.bodyLockRemove(this.delay);
   }
 
   onClick(e) {
@@ -98,4 +98,6 @@ class Burger {
   }
 }
 
-export default Burger;
+const myBurger = new Burger();
+
+export default myBurger;
