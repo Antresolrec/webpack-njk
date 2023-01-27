@@ -17,6 +17,7 @@ import initDrop from './modules/dropMenu';
 import initSpollers from './modules/spollers';
 import initMouseParallax from './modules/mouseParallax';
 import initBtnEffect from './modules/btnEffect';
+import Progress from './modules/progress';
 
 // import './modules/anime';
 import './modules/learning';
@@ -43,6 +44,8 @@ function initModules() {
   initInputMask();
   initMouseParallax();
   initBtnEffect();
+
+  new Progress();
 
   document.body.classList.add('_js-loaded');
 }

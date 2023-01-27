@@ -143,17 +143,17 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       { from: 'src/assets/font', to: 'font' },
-      // { from: 'src/assets/img/main', to: 'img' },
-      { from: 'src/assets/documents', to: 'content/documents' },
-      { from: 'src/assets/img/content', to: 'content' },
-      // { from: 'src/assets/json', to: 'json' },
+      { from: 'src/assets/documents', to: 'docs' },
+      { from: 'src/assets/img', to: 'img' },
       { from: 'src/assets/css', to: 'css' },
+      // { from: 'src/assets/json', to: 'json' },
     ]),
   ],
   devtool: false,
   devServer: {
     // contentBase: 'src',
     port: 3000,
+    open: true,
     disableHostCheck: true,
     historyApiFallback: {
       rewrites: [

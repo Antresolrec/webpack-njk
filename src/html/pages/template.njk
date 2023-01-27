@@ -7,6 +7,9 @@ name: 'О компании',
 link: '#'
 }] %} #}
 {% block content %}
+<div class="progress js-progress">
+  <div class="progress__line js-progress__line"></div>
+</div>
 <div class="container">
   <section class="js-first-screen">
     <div class="title-page">Отступ от шапки</div>
@@ -63,11 +66,11 @@ link: '#'
   </div>
   <div class="title-page">Галерея</div>
   <div class="test-gallery">
-    <a href="content/test.jpg" class="js-gallery-trigger" data-fancybox="product-gallery">
-      <img src="content/test.jpg" alt="">
+    <a href="img/test.jpg" class="js-gallery-trigger" data-fancybox="product-gallery">
+      <img src="img/test.jpg" alt="">
     </a>
-    <a href="content/leaf.png" class="js-gallery-trigger" data-fancybox="product-gallery">
-      <img src="content/leaf.png" alt="">
+    <a href="img/leaf.png" class="js-gallery-trigger" data-fancybox="product-gallery">
+      <img src="img/leaf.png" alt="">
     </a>
   </div>
   <div class="title-page">Ассинхронный фетч запрос</div>
@@ -167,13 +170,13 @@ link: '#'
   <div class="title-page">Параллакс по движению мыши</div>
   <div class="test-parallax">
     <div class="js-mouse-parallax" data-speed="50">
-      <img src="content/leaf.png" alt="">
+      <img src="img/leaf.png" alt="">
     </div>
     <div class="js-mouse-parallax" data-speed="50" data-reverse>
-      <img src="content/leaf.png" alt="" style="transform: rotate(180deg);">
+      <img src="img/leaf.png" alt="" style="transform: rotate(180deg);">
     </div>
     <div class="js-mouse-parallax" data-speed="50">
-      <img src="content/leaf.png" alt="" style="transform: rotate(-25deg);">
+      <img src="img/leaf.png" alt="" style="transform: rotate(-25deg);">
     </div>
   </div>
   <div class="title-page">Эффект наведения на кнопку</div>
