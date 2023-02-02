@@ -1,77 +1,83 @@
 class Drop {
-  constructor(trigger) {
-    this.trigger = trigger;
-    this.class = '_open';
-    this.initClass = '_init';
-    this.triggers = document.querySelectorAll('.js-drop');
-    this.target = null;
-    this.isOpen = null;
-    this.initSize = null;
+  triggers = document.querySelectorAll('.js-drop');
 
-    if (this.trigger) {
+  class = '_open';
+
+  initClass = '_init';
+
+  constructor() {
+    if (this.triggers) {
       this.init();
     }
   }
 
-  clickTrigger() {
-    this.trigger.addEventListener('click', (e) => {
-      e.preventDefault();
-      this.isOpen = e.currentTarget.parentNode.classList.contains(this.class);
-      this.target = e.currentTarget;
-      if (this.isOpen) {
-        this.target.parentNode.classList.remove(this.class);
-      } else {
-        this.triggers.forEach((el) => {
-          el.parentNode.classList.remove(this.class);
-        });
-        this.target.parentNode.classList.add(this.class);
-      }
-    });
+  closeAll() {
+    this.triggers.forEach((el) => el.parentNode.classList.remove(this.class));
   }
 
-  resize() {
-    window.addEventListener('resize', () => {
-      this.checkResponsive(this.trigger);
-    });
+  isOpen(el) {
+    return el.parentNode.classList.contains(this.initClass);
   }
 
-  clickDocument() {
-    document.addEventListener('click', (e) => {
-      this.target = e.target;
-      if (!this.target.closest('._open')) {
-        this.triggers.forEach((el) => {
-          el.parentNode.classList.remove(this.class);
-        });
-      }
-    });
-  }
-
-  checkResponsive(el) {
-    this.initSize = el.parentNode.getAttribute('data-init');
-    if (this.initSize) {
-      if (window.innerWidth <= this.initSize) {
-        el.parentNode.classList.add(this.initClass);
-      } else {
-        el.parentNode.classList.remove(this.initClass);
-      }
-    } else {
+  addListenerClick(el) {
+    if (!this.isOpen(el)) {
+      el.addEventListener('click', this.onTriggerClick);
       el.parentNode.classList.add(this.initClass);
     }
   }
 
+  removeListenerClick(el) {
+    if (this.isOpen(el)) {
+      el.removeEventListener('click', this.onTriggerClick);
+      el.parentNode.classList.remove(this.initClass);
+    }
+  }
+
+  initTriggers() {
+    this.triggers.forEach((el) => {
+      const initPoint = el.getAttribute('data-init');
+      if (initPoint) {
+        if (window.innerWidth <= initPoint) {
+          this.addListenerClick(el);
+        } else {
+          this.removeListenerClick(el);
+        }
+      } else {
+        this.addListenerClick(el);
+      }
+    });
+  }
+
+  onTriggerClick(e) {
+    e.preventDefault();
+    this.isCurOpen = e.currentTarget.parentNode.classList.contains(this.class);
+    this.target = e.currentTarget;
+    if (this.isCurOpen) {
+      this.target.parentNode.classList.remove(this.class);
+    } else {
+      this.closeAll();
+      this.target.parentNode.classList.add(this.class);
+    }
+  }
+
+  onDocumentClick(e) {
+    if (!e.target.closest(`.${this.class}`)) {
+      this.closeAll();
+    }
+  }
+
+  addListeners() {
+    window.addEventListener('resize', this.initTriggers);
+    document.addEventListener('click', this.onDocumentClick);
+  }
+
   init() {
-    this.checkResponsive(this.trigger);
-    this.resize();
-    this.clickTrigger();
-    this.clickDocument();
+    this.onDocumentClick = this.onDocumentClick.bind(this);
+    this.onTriggerClick = this.onTriggerClick.bind(this);
+    this.initTriggers = this.initTriggers.bind(this);
+    this.initTriggers();
+    this.addListeners();
   }
 }
 
-export default function initDrop() {
-  const drops = document.querySelectorAll('.js-drop');
-  if (drops) {
-    drops.forEach((el) => {
-      new Drop(el);
-    });
-  }
-}
+export default Drop;

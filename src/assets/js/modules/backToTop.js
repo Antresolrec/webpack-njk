@@ -1,11 +1,11 @@
 class BackToTop {
-  constructor() {
-    this.btn = document.querySelector('.js-back-to-top');
-    this.screen = document.querySelector('.js-first-screen');
-    this.class = '_show';
-    this.offset = null;
-    this.height = null;
+  btn = document.querySelector('.js-back-to-top');
 
+  screen = document.querySelector('.js-first-screen');
+
+  class = '_show';
+
+  constructor() {
     if (this.btn) {
       this.init();
     }

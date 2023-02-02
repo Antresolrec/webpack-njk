@@ -13,9 +13,10 @@ import DynamicAdapt from './modules/dynamicAdapt';
 import Tabs from './modules/tabs';
 import Slider from './modules/slider';
 import ShowBlock from './modules/showBlock';
-import initDrop from './modules/dropMenu';
+import Drop from './modules/dropMenu';
 import initSpollers from './modules/spollers';
-import initMouseParallax from './modules/mouseParallax';
+// import initMouseParallax from './modules/mouseParallax';
+import MouseParallax from './modules/mouseParallax';
 import initBtnEffect from './modules/btnEffect';
 import Progress from './modules/progress';
 
@@ -38,14 +39,14 @@ function initModules() {
   new Slider();
   new Tabs();
   new ShowBlock();
+  new Drop();
+  new Progress();
+  new MouseParallax();
   initSpollers();
-  initDrop();
   initForm();
   initInputMask();
-  initMouseParallax();
+  // initMouseParallax();
   initBtnEffect();
-
-  new Progress();
 
   document.body.classList.add('_js-loaded');
 }

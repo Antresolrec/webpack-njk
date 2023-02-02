@@ -110,3 +110,39 @@
 //   setTimeout(tick, time);
 // }
 // tick();
+
+/* eslint-disable */
+class Rectangle{
+  _width;
+  _height;
+
+  constructor(w, h) {
+    this._width = w;
+    this._height = h;
+  }
+
+  get width() {
+    return this._width;
+  }
+  get height() {
+    return this._height;
+  }
+  set width(value) {
+    if (value <= 0) {
+      this._width = 1;
+    } else {
+      this._width = value;
+    }
+  }
+  set height(value) {
+    if (value <= 0) {
+      this._height = 1;
+    } else {
+      this._height = value;
+    }
+  }
+}
+const rect = new Rectangle(5,10);
+rect.width = -25;
+rect.height = -25;
+/* eslint-enable */

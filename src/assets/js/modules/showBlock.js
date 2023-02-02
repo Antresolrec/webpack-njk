@@ -1,23 +1,35 @@
 import getOffset from './getOffset';
 
 class ShowBlock {
-  constructor() {
-    this.elems = document.querySelectorAll('.js-anim:not(._show)');
+  elems = document.querySelectorAll('.js-anim:not(._is-show)');
 
+  showedElemsCount = 0;
+
+  constructor() {
     if (this.elems) {
       this.init();
     }
   }
 
   checkPosition() {
-    this.value = window.scrollY + document.documentElement.clientHeight;
-    this.elems.forEach((el) => {
-      if (!el.classList.contains('_show')) {
-        const elOffset = getOffset(el).top;
+    if (this.elems.length === this.showedElemsCount) {
+      ['scroll', 'resize'].forEach((e) => {
+        window.removeEventListener(e, this.checkPosition);
+      });
+    } else {
+      this.value = window.scrollY + document.documentElement.clientHeight;
+      this.showElems();
+    }
+  }
 
-        if (this.value > elOffset) {
-          el.classList.add('_show');
-        }
+  showElems() {
+    this.elems.forEach((el) => {
+      if (
+        !el.classList.contains('_is-show') &&
+        this.value > getOffset(el).top
+      ) {
+        el.classList.add('_is-show');
+        this.showedElemsCount++;
       }
     });
   }

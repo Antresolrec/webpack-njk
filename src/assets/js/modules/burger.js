@@ -56,22 +56,22 @@ class Burger {
 
   bodyLock() {
     if (this.body.classList.contains(this.lockClass)) {
-      this.bodyLockRemove(this.delay);
+      this.bodyLockRemove();
     } else {
-      this.bodyLockAdd(this.delay);
+      this.bodyLockAdd();
     }
   }
 
   close() {
     this.burger.classList.remove(this.openClass);
     this.menu.classList.remove(this.openClass);
-    this.bodyLockRemove(this.delay);
+    this.bodyLockRemove();
   }
 
   onClick(e) {
     e.preventDefault();
     if (this.unlock) {
-      this.bodyLock(this.delay);
+      this.bodyLock();
       this.burger.classList.toggle(this.openClass);
       this.menu.classList.toggle(this.openClass);
     }
@@ -79,18 +79,21 @@ class Burger {
 
   onResize() {
     if (window.innerWidth > this.width) {
-      this.close(this.delay);
-      this.bodyLockRemove(this.delay);
+      this.close();
+      this.bodyLockRemove();
     }
   }
 
   addListeners() {
-    this.burger.addEventListener('click', this.onClick.bind(this));
-    window.addEventListener('resize', this.onResize.bind(this));
+    this.burger.addEventListener('click', this.onClick);
+    window.addEventListener('resize', this.onResize);
     this.burger.classList.add(this.initedClass);
   }
 
   init() {
+    this.onClick = this.onClick.bind(this);
+    this.onResize = this.onResize.bind(this);
+
     if (!this.burger.classList.contains(this.initedClass)) {
       this.width = this.burger.dataset.init;
       this.addListeners();

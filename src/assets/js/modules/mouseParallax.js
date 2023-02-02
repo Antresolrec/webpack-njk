@@ -1,53 +1,68 @@
 class MouseParallax {
-  constructor(el) {
-    this.el = el;
-    this.speed = this.el.getAttribute('data-speed');
-    this.x = null;
-    this.y = null;
+  elements = document.querySelectorAll('.js-mouse-parallax');
 
-    if (this.el) {
+  destroyPoint = 1023;
+
+  isInit = false;
+
+  constructor() {
+    if (this.elements) {
       this.init();
     }
   }
 
-  options(e) {
+  onMouseMove(e) {
     this.x = e.clientX / window.innerWidth;
     this.y = e.clientY / window.innerHeight;
-    if (this.el.hasAttribute('data-reverse')) {
-      this.style(true);
+    this.elements.forEach((el) => this.addAction(el));
+  }
+
+  addAction(el) {
+    const speed = el.dataset.speed;
+
+    if (el.hasAttribute('data-reverse')) {
+      el.style.transform = `translate(${this.x * speed}px, ${
+        this.y * speed
+      }px)`;
     } else {
-      this.style();
+      el.style.transform = `translate(-${this.x * speed}px, -${
+        this.y * speed
+      }px)`;
     }
   }
 
-  style(state) {
-    if (state) {
-      this.el.style.transform = `translate3d(${this.x * this.speed}px, ${
-        this.y * this.speed
-      }px, ${this.x * 30}px)`;
-    } else {
-      this.el.style.transform = `translate3d(-${this.x * this.speed}px, -${
-        this.y * this.speed
-      }px, ${this.x * 30}px)`;
+  addMouseListener() {
+    if (!this.isInit) {
+      window.addEventListener('mousemove', this.onMouseMove);
+      this.isInit = true;
     }
   }
 
-  listener() {
-    window.addEventListener('mousemove', (e) => {
-      this.options(e);
-    });
+  removeMouseListener() {
+    if (this.isInit) {
+      window.removeEventListener('mousemove', this.onMouseMove);
+      this.isInit = false;
+    }
+  }
+
+  checkWindowSize() {
+    if (window.innerWidth > this.destroyPoint) {
+      this.addMouseListener();
+    } else {
+      this.removeMouseListener();
+    }
+  }
+
+  addResizeListener() {
+    window.addEventListener('resize', this.checkWindowSize);
   }
 
   init() {
-    this.listener();
+    this.onMouseMove = this.onMouseMove.bind(this);
+    this.checkWindowSize = this.checkWindowSize.bind(this);
+    this.checkWindowSize();
+    this.addResizeListener();
   }
 }
 
-export default function initMouseParallax() {
-  const mouseParallax = document.querySelectorAll('.js-mouse-parallax');
-  if (mouseParallax) {
-    mouseParallax.forEach((el) => {
-      new MouseParallax(el);
-    });
-  }
-}
+export default MouseParallax;
